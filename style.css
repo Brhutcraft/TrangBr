@@ -396,19 +396,21 @@ header h1 {
   /* Đã đặt font-family Lora */
   font-family: 'Lora', serif;
   font-size: clamp(2.8rem, 6vw, 3.5rem);
-  font-weight: 700;
+  font-weight: 700; /* Giữ hoặc đặt weight 700 cho H1 */
   margin-bottom: 0.8rem;
   /* Tăng bóng đổ để chữ nổi bật trên nền ảnh */
   text-shadow: 0 3px 10px rgba(0,0,0,0.8);
   letter-spacing: -1px;
   /* Màu trắng ngà với độ mờ 80% (tăng độ mờ so với bản sáng) */
   color: rgba(240, 240, 240, 0.8); /* Sử dụng màu trắng ngà F0F0F0 */
+  line-height: 1.1; /* Điều chỉnh line-height cho H1 nếu cần */
 }
 
 header p {
   /* Thêm lại font-family để đảm bảo nếu cần */
   font-family: 'Lora', serif;
   font-size: clamp(1.1rem, 3.5vw, 1.3rem);
+  font-weight: 400; /* Đảm bảo weight 400 cho đoạn văn */
   max-width: 700px;
   line-height: 1.7;
   /* Tăng bóng đổ cho dễ đọc trên nền ảnh */
@@ -424,14 +426,14 @@ header p {
   padding: 0.7rem 1.2rem;
   color: var(--text-light); /* Giữ màu chữ trắng */
   border-radius: 5px;
-  font-weight: bold;
+  font-weight: bold; /* Giữ font-weight bold cho nút */
   transition: background 0.3s ease, transform 0.2s ease;
   display: inline-block;
   border: none;
   cursor: pointer;
   /* Thêm lại font-family để đảm bảo nếu cần */
   font-family: 'Lora', serif;
-  font-size: 1em;
+  font-size: 1em; /* Giữ font-size 1em hoặc điều chỉnh */
 }
 
 .button:hover {
@@ -464,6 +466,8 @@ header p {
   color: var(--text-dark);
   /* Đã đặt font-family Lora */
   font-family: 'Lora', serif;
+  font-weight: 700; /* Đặt weight 700 cho H2 */
+  line-height: 1.3; /* Điều chỉnh line-height cho H2 nếu cần */
 }
 
 /* Styling cho SVG nếu vẫn dùng */
@@ -556,6 +560,7 @@ header p {
 .quote-item blockquote p {
     font-style: italic; /* Giữ italic cho quote */
     text-align: center;
+    font-weight: 400; /* Đảm bảo weight 400 cho quote */
 }
 /* -------------------------------------------------------------- */
 
@@ -701,6 +706,7 @@ header p {
    transition: color 0.3s ease;
    /* Đã đặt font-family Lora */
    font-family: 'Lora', serif;
+   font-weight: 700; /* Đặt weight 700 cho H3 */
  }
 
   /* Thay đổi màu chữ tiêu đề khi rê chuột */
@@ -718,6 +724,7 @@ header p {
     line-height: 1.4;
     /* Thêm lại font-family để đảm bảo nếu cần */
     font-family: 'Lora', serif;
+    font-weight: 400; /* Đảm bảo weight 400 cho đoạn văn */
 }
 
 
@@ -760,12 +767,13 @@ footer {
   line-height: 1.5;
   /* Thêm lại font-family để đảm bảo nếu cần */
   font-family: 'Lora', serif;
+  font-weight: 400; /* Đảm bảo weight 400 cho đoạn văn */
 }
 
 .footer-content a {
   /* Màu link footer - Màu nhấn Cyan/Teal Sáng */
   color: var(--main-color);
-  font-weight: bold;
+  font-weight: bold; /* Giữ font-weight bold cho link nếu cần */
   transition: color 0.3s ease;
   /* Thêm lại font-family để đảm bảo nếu cần */
   font-family: 'Lora', serif;
@@ -811,6 +819,8 @@ footer {
   color: var(--text-dark);
    /* Đã đặt font-family Lora */
   font-family: 'Lora', serif;
+  font-weight: 700; /* Đặt weight 700 cho H2 */
+  line-height: 1.3; /* Điều chỉnh line-height cho H2 nếu cần */
 }
 
 .gallery-grid {
@@ -864,6 +874,7 @@ footer {
     line-height: 1.5;
     /* Thêm lại font-family để đảm bảo nếu cần */
     font-family: 'Lora', serif;
+    font-weight: 400; /* Đảm bảo weight 400 cho đoạn văn */
 }
 
 
@@ -889,6 +900,7 @@ footer {
     line-height: 1.2;
      /* Đã đặt font-family Lora */
     font-family: 'Lora', serif;
+    font-weight: 700; /* Đặt weight 700 cho H2 */
 }
 
 .cta-section p {
@@ -905,12 +917,14 @@ footer {
     padding: 0;
     /* Thêm lại font-family để đảm bảo nếu cần */
     font-family: 'Lora', serif;
+    font-weight: 400; /* Đảm bảo weight 400 cho đoạn văn */
 }
 
 /* Nút trong CTA sẽ tự động dùng style của class .button đã có */
 .cta-section .button {
     margin-top: 1.5rem;
-    /* Thêm lại font-family để đảm bảo nếu cần */
+     /* Thêm lại font-family để đảm bảo nếu cần */
     font-family: 'Lora', serif;
+    font-weight: bold; /* Giữ font-weight bold cho nút */
 }
 /* --- KẾT THÚC BỔ SUNG CSS CHO CÁC SECTION MỚI --- */
