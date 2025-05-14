@@ -1,13 +1,15 @@
 /* style.css - BỘ MÀU TỐI GIẢN&TINH TẾ */
 
-/* --- BỔ SUNG: Import font Lora từ Google Fonts cho quote VÀ HEADER/BUTTON --- */
+/* --- BỔ SUNG: Import font Lora từ Google Fonts cho quote, HEADER P và BUTTON --- */
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 /* --- BỔ SUNG: Import font Raleway cho tiêu đề và Open Sans cho nội dung --- */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;700&display=swap');
 
-/* --- Đã bỏ import Poppins nếu không cần dùng nữa --- */
-/* Nếu bạn vẫn muốn dùng Poppins ở chỗ khác, hãy giữ lại dòng import của nó */
+/* --- BỔ SUNG MỚI: Import font Playfair Display cho Tiêu đề Header --- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
+/* --- Có thể bỏ import Poppins nếu không dùng nữa --- */
 /* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap'); */
 /* ------------------------------------------------------------- */
 
@@ -398,10 +400,10 @@ header > * {
 
 
 header h1 {
-  /* Đã thay đổi font-family sang Lora */
-  font-family: 'Lora', serif;
+  /* Đã thay đổi font-family sang Playfair Display */
+  font-family: 'Playfair Display', serif;
   font-size: clamp(2.8rem, 6vw, 3.5rem);
-  font-weight: 700; /* Giữ nguyên weight 700 nếu có trong Lora */
+  font-weight: 700; /* Giữ nguyên weight 700 nếu có trong Playfair Display */
   margin-bottom: 0.8rem;
   /* Tăng bóng đổ để chữ nổi bật trên nền ảnh */
   text-shadow: 0 3px 10px rgba(0,0,0,0.8);
@@ -411,7 +413,7 @@ header h1 {
 }
 
 header p {
-  /* Đã thay đổi font-family sang Lora */
+  /* Giữ font-family Lora cho đoạn mô tả */
   font-family: 'Lora', serif;
   font-size: clamp(1.1rem, 3.5vw, 1.3rem);
   max-width: 700px;
@@ -434,7 +436,7 @@ header p {
   display: inline-block;
   border: none;
   cursor: pointer;
-  /* Đã thay đổi font-family sang Lora */
+  /* Giữ font-family Lora cho nút */
   font-family: 'Lora', serif;
   font-size: 1em;
 }
