@@ -1,16 +1,9 @@
 /* style.css - BỘ MÀU TỐI GIẢN&TINH TẾ */
 
-/* --- BỔ SUNG: Import font Lora từ Google Fonts cho quote, HEADER P và BUTTON --- */
+/* --- BỔ SUNG: Import font Lora từ Google Fonts cho TOÀN BỘ WEBSITE --- */
+/* Đã bỏ các import font khác nếu không dùng */
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-/* --- BỔ SUNG: Import font Raleway cho tiêu đề và Open Sans cho nội dung --- */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;700&display=swap');
-
-/* --- BỔ SUNG MỚI: Import font Playfair Display cho Tiêu đề Header --- */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
-
-/* --- Có thể bỏ import Poppins nếu không dùng nữa --- */
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap'); */
 /* ------------------------------------------------------------- */
 
 :root {
@@ -46,7 +39,8 @@ html {
 }
 
 body {
-  font-family: 'Open Sans', sans-serif; /* Giữ Open Sans là font mặc định cho body nếu muốn */
+  /* Đã đặt font-family Lora cho toàn bộ body */
+  font-family: 'Lora', serif;
   background-color: var(--background); /* Nền body: Xanh Đen Đậm */
   color: var(--text-dark); /* Chữ: Xám Nhạt */
   line-height: 1.6;
@@ -62,6 +56,8 @@ a {
   text-decoration: none;
   color: inherit; /* Sẽ kế thừa màu chữ từ cha (body -> var(--text-dark) -> Xám Nhạt) */
   transition: color 0.3s ease;
+  /* Đã bỏ font-family cụ thể để kế thừa từ body */
+  /* font-family: 'Lora', serif; // Kế thừa từ body */
 }
 
 /* Hover cho link mặc định - Đổi màu để nổi bật trên nền tối */
@@ -122,7 +118,8 @@ a:hover {
   /* Màu chữ link - Kế thừa từ body (var(--text-dark) -> Xám Nhạt) */
   /* color: var(--text-dark); */
   transition: color 0.3s ease;
-  font-family: 'Open Sans', sans-serif; /* Giữ Open Sans cho link navbar */
+  /* Đã bỏ font-family cụ thể để kế thừa từ body */
+  /* font-family: 'Lora', serif; // Kế thừa từ body */
 }
 
 .nav-links li a:hover {
@@ -278,14 +275,8 @@ a:hover {
     font-size: 1.1rem;
     font-weight: 500;
     transition: color 0.3s ease, background-color 0.3s ease;
-    font-family: 'Open Sans', sans-serif; /* Giữ Open Sans cho link mobile menu */
-}
-
-.mobile-menu .nav-links li a:hover {
-     /* Màu khi hover - Màu nhấn Cyan/Teal Sáng */
-     color: var(--main-color);
-     /* Hiệu ứng nền nhẹ khi hover - Đổi sang màu sáng mờ */
-     background-color: rgba(255, 255, 255, 0.05);
+    /* Đã bỏ font-family cụ thể để kế thừa từ body */
+    /* font-family: 'Lora', serif; // Kế thừa từ body */
 }
 
 /* --- CSS cho Social Icons trong Mobile Menu --- */
@@ -366,7 +357,7 @@ a:hover {
      }
 }
 
-/* --- STYLE CHO HEADER VỚI FONT MỚI VÀ NỀN TỐI --- */
+/* --- STYLE CHO HEADER VỚI FONT LORA VÀ NỀN TỐI --- */
 header {
   background: url('https://brhut.wordpress.com/wp-content/uploads/2025/05/full2kne1134848563423638875.jpg') center/cover no-repeat;
   height: 70vh;
@@ -400,10 +391,10 @@ header > * {
 
 
 header h1 {
-  /* Đã thay đổi font-family sang Playfair Display */
-  font-family: 'Playfair Display', serif;
+  /* Đã đặt font-family Lora (có thể bỏ nếu chỉ dựa vào body, nhưng giữ lại cho rõ ràng) */
+  font-family: 'Lora', serif;
   font-size: clamp(2.8rem, 6vw, 3.5rem);
-  font-weight: 700; /* Giữ nguyên weight 700 nếu có trong Playfair Display */
+  font-weight: 700;
   margin-bottom: 0.8rem;
   /* Tăng bóng đổ để chữ nổi bật trên nền ảnh */
   text-shadow: 0 3px 10px rgba(0,0,0,0.8);
@@ -413,8 +404,8 @@ header h1 {
 }
 
 header p {
-  /* Giữ font-family Lora cho đoạn mô tả */
-  font-family: 'Lora', serif;
+  /* Đã bỏ font-family cụ thể để kế thừa từ body */
+  /* font-family: 'Lora', serif; // Kế thừa từ body */
   font-size: clamp(1.1rem, 3.5vw, 1.3rem);
   max-width: 700px;
   line-height: 1.7;
@@ -436,8 +427,8 @@ header p {
   display: inline-block;
   border: none;
   cursor: pointer;
-  /* Giữ font-family Lora cho nút */
-  font-family: 'Lora', serif;
+  /* Đã bỏ font-family cụ thể để kế thừa từ body */
+  /* font-family: 'Lora', serif; // Kế thừa từ body */
   font-size: 1em;
 }
 
@@ -469,7 +460,8 @@ header p {
   margin-bottom: 2rem;
   /* Màu chữ h2 - Xám Nhạt */
   color: var(--text-dark);
-  font-family: 'Raleway', sans-serif; /* Giữ Raleway cho h2 của slider nếu muốn */
+  /* Đã đặt font-family Lora (có thể bỏ nếu chỉ dựa vào body, nhưng giữ lại cho rõ ràng) */
+  font-family: 'Lora', serif;
 }
 
 /* Styling cho SVG nếu vẫn dùng */
@@ -554,12 +546,15 @@ header p {
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
     /* Màu chữ trong quote - Trắng */
     color: var(--text-light);
+    /* Đã bỏ font-family cụ thể để kế thừa từ body */
+    /* font-family: 'Lora', serif; // Kế thừa từ body */
+    /* font-style: italic; // Nếu muốn giữ italic, hãy thêm lại dòng này */
 }
 
 /* --- Giữ nguyên: Kiểu chữ và Căn giữa cho đoạn văn trong quote (dùng font Lora) --- */
 .quote-item blockquote p {
-    font-style: italic;
-    font-family: 'Lora', serif;
+    font-style: italic; /* Giữ italic cho quote */
+    /* font-family: 'Lora', serif; // Đã kế thừa từ body */
     text-align: center;
 }
 /* -------------------------------------------------------------- */
@@ -599,7 +594,7 @@ header p {
 
 /* Trích dẫn thứ 5 */
 .quotes-slider-wrapper .quote-item:nth-child(5) blockquote {
-    background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/05/17465126690376539023984443098602.jpg');
+    background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/05/174651266903984443098602.jpg');
 }
 
 
@@ -704,7 +699,8 @@ header p {
    padding: 0;
    border-radius: 0;
    transition: color 0.3s ease;
-   font-family: 'Raleway', sans-serif; /* Giữ Raleway cho h3 của categories nếu muốn */
+   /* Đã đặt font-family Lora (có thể bỏ nếu chỉ dựa vào body, nhưng giữ lại cho rõ ràng) */
+   font-family: 'Lora', serif;
  }
 
   /* Thay đổi màu chữ tiêu đề khi rê chuột */
@@ -720,7 +716,8 @@ header p {
     /* Màu chữ p trong category - Xám Nhạt Vừa */
     color: var(--accent-secondary);
     line-height: 1.4;
-    font-family: 'Open Sans', sans-serif; /* Giữ Open Sans cho p của categories nếu muốn */
+    /* Đã bỏ font-family cụ thể để kế thừa từ body */
+    /* font-family: 'Lora', serif; // Kế thừa từ body */
 }
 
 
@@ -761,7 +758,8 @@ footer {
   font-size: 0.9rem;
   margin: 0.5rem 0;
   line-height: 1.5;
-  font-family: 'Open Sans', sans-serif; /* Giữ Open Sans cho p của footer nếu muốn */
+  /* Đã bỏ font-family cụ thể để kế thừa từ body */
+  /* font-family: 'Lora', serif; // Kế thừa từ body */
 }
 
 .footer-content a {
@@ -769,7 +767,8 @@ footer {
   color: var(--main-color);
   font-weight: bold;
   transition: color 0.3s ease;
-  font-family: 'Open Sans', sans-serif; /* Giữ Open Sans cho link footer nếu muốn */
+  /* Đã bỏ font-family cụ thể để kế thừa từ body */
+  /* font-family: 'Lora', serif; // Kế thừa từ body */
 }
 
 .footer-content a:hover {
@@ -814,7 +813,8 @@ footer {
   margin-bottom: 2.5rem;
   /* Màu chữ h2 - Xám Nhạt */
   color: var(--text-dark);
-  font-family: 'Raleway', sans-serif; /* Giữ Raleway cho h2 của gallery section nếu muốn */
+   /* Đã đặt font-family Lora (có thể bỏ nếu chỉ dựa vào body, nhưng giữ lại cho rõ ràng) */
+  font-family: 'Lora', serif;
 }
 
 .gallery-grid {
@@ -866,7 +866,8 @@ footer {
   border-radius: 0;
     margin-bottom: 0;
     line-height: 1.5;
-    font-family: 'Open Sans', sans-serif; /* Giữ Open Sans cho p của gallery item nếu muốn */
+    /* Đã bỏ font-family cụ thể để kế thừa từ body */
+    /* font-family: 'Lora', serif; // Kế thừa từ body */
 }
 
 
@@ -890,7 +891,8 @@ footer {
     /* Màu chữ h2 - Xám Nhạt */
     color: var(--text-dark);
     line-height: 1.2;
-    font-family: 'Raleway', sans-serif; /* Giữ Raleway cho h2 của CTA nếu muốn */
+     /* Đã đặt font-family Lora (có thể bỏ nếu chỉ dựa vào body, nhưng giữ lại cho rõ ràng) */
+    font-family: 'Lora', serif;
 }
 
 .cta-section p {
@@ -905,7 +907,8 @@ footer {
     box-shadow: none;
     border-radius: 0;
     padding: 0;
-    font-family: 'Open Sans', sans-serif; /* Giữ Open Sans cho p của CTA nếu muốn */
+    /* Đã bỏ font-family cụ thể để kế thừa từ body */
+    /* font-family: 'Lora', serif; // Kế thừa từ body */
 }
 
 /* Nút trong CTA sẽ tự động dùng style của class .button đã có */
