@@ -5,6 +5,9 @@
 
 /* --- BỔ SUNG: Import font Raleway cho tiêu đề và Open Sans cho nội dung --- */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;700&display=swap');
+
+/* --- BỔ SUNG MỚI: Import font Poppins --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 /* ------------------------------------------------------------- */
 
 :root {
@@ -17,7 +20,7 @@
   --accent: #8A9EFF; /* MÀU NHẤN 2: Xanh Tím Nhạt */
   --accent-secondary: #B0B0B0; /* MÀU XÁM PHỤ: Xám Nhạt Vừa */
 
-  --element-background-dark: #2C2C4B; /* NỀN THÀNH PHẦN TỐI: Xanh Đậm Hơi Nhạt Hơn */
+  --element-background-dark: #2C2C4B; /* Nền THÀNH PHẦN TỐI: Xanh Đậm Hơi Nhạt Hơn */
   --border-color-dark: #3A3A5A; /* MÀU ĐƯỜNG KẺ TỐI */
   /* ------------------------------------------------- */
 
@@ -40,7 +43,7 @@ html {
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif; /* Giữ Open Sans là font mặc định cho body */
   background-color: var(--background); /* Nền body: Xanh Đen Đậm */
   color: var(--text-dark); /* Chữ: Xám Nhạt */
   line-height: 1.6;
@@ -116,7 +119,7 @@ a:hover {
   /* Màu chữ link - Kế thừa từ body (var(--text-dark) -> Xám Nhạt) */
   /* color: var(--text-dark); */
   transition: color 0.3s ease;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif; /* Giữ Open Sans cho link navbar */
 }
 
 .nav-links li a:hover {
@@ -272,7 +275,7 @@ a:hover {
     font-size: 1.1rem;
     font-weight: 500;
     transition: color 0.3s ease, background-color 0.3s ease;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif; /* Giữ Open Sans cho link mobile menu */
 }
 
 .mobile-menu .nav-links li a:hover {
@@ -394,9 +397,10 @@ header > * {
 
 
 header h1 {
-  font-family: 'Raleway', sans-serif;
+  /* Đã thay đổi font-family sang Poppins */
+  font-family: 'Poppins', sans-serif;
   font-size: clamp(2.8rem, 6vw, 3.5rem);
-  font-weight: 700;
+  font-weight: 700; /* Giữ nguyên weight 700 nếu có trong Poppins */
   margin-bottom: 0.8rem;
   /* Tăng bóng đổ để chữ nổi bật trên nền ảnh */
   text-shadow: 0 3px 10px rgba(0,0,0,0.8);
@@ -406,7 +410,8 @@ header h1 {
 }
 
 header p {
-  font-family: 'Open Sans', sans-serif;
+  /* Đã thay đổi font-family sang Poppins */
+  font-family: 'Poppins', sans-serif;
   font-size: clamp(1.1rem, 3.5vw, 1.3rem);
   max-width: 700px;
   line-height: 1.7;
@@ -428,7 +433,8 @@ header p {
   display: inline-block;
   border: none;
   cursor: pointer;
-  font-family: 'Open Sans', sans-serif;
+  /* Đã thay đổi font-family sang Poppins */
+  font-family: 'Poppins', sans-serif;
   font-size: 1em;
 }
 
@@ -460,7 +466,7 @@ header p {
   margin-bottom: 2rem;
   /* Màu chữ h2 - Xám Nhạt */
   color: var(--text-dark);
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Raleway', sans-serif; /* Giữ Raleway cho h2 của slider */
 }
 
 /* Styling cho SVG nếu vẫn dùng */
@@ -695,7 +701,7 @@ header p {
    padding: 0;
    border-radius: 0;
    transition: color 0.3s ease;
-   font-family: 'Raleway', sans-serif;
+   font-family: 'Raleway', sans-serif; /* Giữ Raleway cho h3 của categories */
  }
 
   /* Thay đổi màu chữ tiêu đề khi rê chuột */
@@ -711,7 +717,7 @@ header p {
     /* Màu chữ p trong category - Xám Nhạt Vừa */
     color: var(--accent-secondary);
     line-height: 1.4;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif; /* Giữ Open Sans cho p của categories */
 }
 
 
@@ -752,7 +758,7 @@ footer {
   font-size: 0.9rem;
   margin: 0.5rem 0;
   line-height: 1.5;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif; /* Giữ Open Sans cho p của footer */
 }
 
 .footer-content a {
@@ -760,7 +766,7 @@ footer {
   color: var(--main-color);
   font-weight: bold;
   transition: color 0.3s ease;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif; /* Giữ Open Sans cho link footer */
 }
 
 .footer-content a:hover {
@@ -805,7 +811,7 @@ footer {
   margin-bottom: 2.5rem;
   /* Màu chữ h2 - Xám Nhạt */
   color: var(--text-dark);
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Raleway', sans-serif; /* Giữ Raleway cho h2 của gallery section */
 }
 
 .gallery-grid {
@@ -857,7 +863,7 @@ footer {
   border-radius: 0;
     margin-bottom: 0;
     line-height: 1.5;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif; /* Giữ Open Sans cho p của gallery item */
 }
 
 
@@ -881,7 +887,7 @@ footer {
     /* Màu chữ h2 - Xám Nhạt */
     color: var(--text-dark);
     line-height: 1.2;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway', sans-serif; /* Giữ Raleway cho h2 của CTA */
 }
 
 .cta-section p {
@@ -896,7 +902,7 @@ footer {
     box-shadow: none;
     border-radius: 0;
     padding: 0;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif; /* Giữ Open Sans cho p của CTA */
 }
 
 /* Nút trong CTA sẽ tự động dùng style của class .button đã có */
