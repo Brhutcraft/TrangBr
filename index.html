@@ -3,22 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BrHut - Tối Giản</title>
-  
+  <title>BrHut - Sống Gần Thiên Nhiên</title>
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@300;500&display=swap" rel="stylesheet" />
-  
+
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  
-  <style>
-    /* CSS nội bộ theo yêu cầu bạn */
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@300;500&display=swap');
 
+  <style>
+    /* Reset */
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      margin: 0; padding: 0; box-sizing: border-box;
     }
 
     body {
@@ -35,11 +31,11 @@
       text-decoration: none;
       transition: color 0.3s ease;
     }
-
     a:hover {
       color: #a5d6a7;
     }
 
+    /* Navbar */
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -50,18 +46,15 @@
       top: 0;
       z-index: 1000;
     }
-
     .nav-left {
       display: flex;
       align-items: center;
       gap: 14px;
     }
-
     .nav-logo img {
       height: 42px;
       filter: brightness(0) invert(1);
     }
-
     .desktop-nav-links {
       display: flex;
       list-style: none;
@@ -70,13 +63,14 @@
       font-weight: 600;
       font-size: 1rem;
     }
-
     .desktop-nav-links li a {
       color: #c8e6c9;
       padding: 6px 0;
       border-bottom: 2px solid transparent;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
-
     .desktop-nav-links li a:hover,
     .desktop-nav-links li a.active {
       border-bottom: 2px solid #81c784;
@@ -89,21 +83,20 @@
       color: #a5d6a7;
       cursor: pointer;
       margin-left: 15px;
+      background: none;
+      border: none;
     }
-
     .nav-right .kofi-icon i {
       font-size: 1.5rem;
       color: #81c784;
       cursor: pointer;
       transition: color 0.3s ease;
     }
-
     .nav-right .kofi-icon:hover i {
       color: #a5d6a7;
     }
 
     /* Mobile menu */
-
     .mobile-menu-overlay {
       position: fixed;
       inset: 0;
@@ -111,7 +104,6 @@
       display: none;
       z-index: 999;
     }
-
     .mobile-menu-wrapper {
       position: fixed;
       top: 0; right: 0;
@@ -126,18 +118,15 @@
       flex-direction: column;
       padding: 25px 20px;
     }
-
     .mobile-menu-wrapper.active {
       transform: translateX(0);
     }
-
     .mobile-menu {
       flex-grow: 1;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
-
     .close-btn {
       background: none;
       border: none;
@@ -146,7 +135,6 @@
       align-self: flex-end;
       cursor: pointer;
     }
-
     .mobile-menu .nav-links {
       list-style: none;
       margin-top: 30px;
@@ -154,42 +142,38 @@
       flex-direction: column;
       gap: 18px;
     }
-
     .mobile-menu .nav-links li a {
       color: #c8e6c9;
       font-weight: 600;
       font-size: 1.15rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-
     .mobile-menu .nav-links li a:hover {
       color: #81c784;
     }
-
     .menu-social {
       display: flex;
       justify-content: center;
       gap: 22px;
       margin-top: 40px;
     }
-
     .menu-social .social-link {
       font-size: 1.4rem;
       color: #81c784;
       transition: color 0.3s ease;
     }
-
     .menu-social .social-link:hover {
       color: #a5d6a7;
     }
 
     /* Header */
-
     header#top {
       padding: 100px 20px 60px;
       text-align: center;
       background: linear-gradient(135deg, #014d40cc, #002b36cc);
     }
-
     header h1 {
       font-size: 2.8rem;
       font-weight: 700;
@@ -197,7 +181,6 @@
       margin-bottom: 18px;
       letter-spacing: 1.2px;
     }
-
     header p {
       font-family: 'Roboto', sans-serif;
       font-weight: 300;
@@ -207,7 +190,6 @@
       color: #c8e6c9;
       line-height: 1.6;
     }
-
     header .button {
       background-color: #81c784;
       color: #002b36;
@@ -220,13 +202,11 @@
       transition: background-color 0.3s ease;
       display: inline-block;
     }
-
     header .button:hover {
       background-color: #a5d6a7;
     }
 
     /* Quotes slider section */
-
     .quotes-slider-section {
       padding: 50px 15px 50px;
       background-color: #013935;
@@ -237,22 +217,19 @@
       color: #c8e6c9;
       font-style: italic;
       font-weight: 400;
+      font-size: 1.1rem;
     }
-
     .quotes-slider-wrapper {
       display: flex;
       flex-direction: column;
       gap: 25px;
     }
-
     .quote-item blockquote p {
-      font-size: 1.2rem;
       line-height: 1.6;
       text-align: center;
     }
 
     /* Categories section */
-
     .categories {
       display: flex;
       justify-content: center;
@@ -262,7 +239,6 @@
       max-width: 1080px;
       margin: 0 auto 100px;
     }
-
     .category {
       flex: 1 1 280px;
       border-radius: 14px;
@@ -271,12 +247,19 @@
       box-shadow: 0 6px 12px #014d40cc;
       transition: transform 0.3s ease;
       background-color: #013935;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      color: #a5d6a7;
+      font-weight: 600;
+      font-size: 1.15rem;
+      letter-spacing: 0.03em;
+      padding-bottom: 16px;
     }
-
     .category:hover {
       transform: scale(1.05);
     }
-
     .category img {
       width: 100%;
       height: 170px;
@@ -284,22 +267,14 @@
       filter: brightness(0.9);
       transition: filter 0.3s ease;
     }
-
     .category:hover img {
       filter: brightness(1);
     }
-
     .category-content {
-      padding: 16px 12px;
-      text-align: center;
-      color: #a5d6a7;
-      font-weight: 600;
-      font-size: 1.15rem;
-      letter-spacing: 0.03em;
+      padding: 12px 12px 0;
     }
 
     /* Footer */
-
     footer {
       background-color: #014d40;
       padding: 25px 15px;
@@ -308,101 +283,157 @@
       font-weight: 500;
       font-size: 0.9rem;
     }
-
-    footer a {
-      color: #a5d6a7;
-      font-weight: 600;
-    }
-
-    .footer-social {
-      margin-top: 18px;
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-    }
-
-    .footer-social .social-link {
-      font-size: 1.4rem;
-      color: #81c784;
-      transition: color 0.3s ease;
-    }
-
-    .footer-social .social-link:hover {
-      color: #a5d6a7;
-    }
-
     /* Responsive */
-
-    @media screen and (max-width: 900px) {
+    @media (max-width: 900px) {
       .desktop-nav-links {
         display: none;
       }
-
       .hamburger {
         display: block;
       }
-    }
-
-    @media screen and (max-width: 650px) {
       .categories {
-        flex-direction: column;
-        align-items: center;
+        gap: 16px;
       }
-
       .category {
-        max-width: 320px;
+        flex: 1 1 100%;
       }
     }
   </style>
 </head>
 <body>
-  <nav class="navbar">
+
+  <!-- Navbar -->
+  <nav class="navbar" role="navigation" aria-label="Main Navigation">
     <div class="nav-left">
-      <a href="/" class="nav-logo" aria-label="BrHut Logo">
-        <img src="https://brhut.com/logo.png" alt="BrHut" />
+      <a href="#" class="nav-logo" aria-label="Trang chủ BrHut">
+        <img src="https://cdn-icons-png.flaticon.com/512/427/427735.png" alt="BrHut logo" />
       </a>
-      <ul class="desktop-nav-links" role="list">
-        <li><a href="/" class="active" aria-current="page" title="Trang chủ"><i class="fas fa-house"></i></a></li>
-        <li><a href="/projects" title="Dự án"><i class="fas fa-layer-group"></i></a></li>
-        <li><a href="/gallery" title="Thư viện"><i class="fas fa-image"></i></a></li>
-        <li><a href="/about" title="Về chúng tôi"><i class="fas fa-info-circle"></i></a></li>
-        <li><a href="/contact" title="Liên hệ"><i class="fas fa-envelope"></i></a></li>
+      <ul class="desktop-nav-links">
+        <li><a href="#top" class="active" aria-current="page"><i class="fa-solid fa-house"></i> Trang chủ</a></li>
+        <li><a href="#quotes"><i class="fa-solid fa-quote-left"></i> Trích dẫn</a></li>
+        <li><a href="#categories"><i class="fa-solid fa-th-list"></i> Danh mục</a></li>
+        <li><a href="#footer"><i class="fa-solid fa-info-circle"></i> Liên hệ</a></li>
       </ul>
     </div>
     <div class="nav-right">
-      <a href="https://ko-fi.com/brhutcraft" class="kofi-icon" target="_blank" rel="noopener" aria-label="Ủng hộ trên Ko-fi">
-        <i class="fas fa-mug-hot"></i>
+      <button class="hamburger" aria-label="Mở menu" aria-expanded="false" aria-controls="mobile-menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <a href="https://ko-fi.com/brhut" class="kofi-icon" target="_blank" rel="noopener" aria-label="Ủng hộ BrHut trên Ko-fi">
+        <i class="fa-brands fa-kickstarter-k"></i>
       </a>
-      <button class="hamburger" aria-label="Mở menu" aria-expanded="false" aria-controls="mobile-menu"><i class="fas fa-bars"></i></button>
     </div>
   </nav>
 
   <!-- Mobile Menu -->
   <div class="mobile-menu-overlay" tabindex="-1"></div>
   <aside id="mobile-menu" class="mobile-menu-wrapper" aria-hidden="true">
-    <nav class="mobile-menu" role="navigation" aria-label="Menu điều hướng chính">
-      <button class="close-btn" aria-label="Đóng menu"><i class="fas fa-times"></i></button>
+    <button class="close-btn" aria-label="Đóng menu">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <nav class="mobile-menu" role="menu">
       <ul class="nav-links" role="list">
-        <li><a href="/" aria-current="page"><i class="fas fa-house"></i> Trang chủ</a></li>
-        <li><a href="/projects"><i class="fas fa-layer-group"></i> Dự án</a></li>
-        <li><a href="/gallery"><i class="fas fa-image"></i> Thư viện</a></li>
-        <li><a href="/about"><i class="fas fa-info-circle"></i> Về chúng tôi</a></li>
-        <li><a href="/contact"><i class="fas fa-envelope"></i> Liên hệ</a></li>
+        <li role="none"><a role="menuitem" href="#top"><i class="fa-solid fa-house"></i> Trang chủ</a></li>
+        <li role="none"><a role="menuitem" href="#quotes"><i class="fa-solid fa-quote-left"></i> Trích dẫn</a></li>
+        <li role="none"><a role="menuitem" href="#categories"><i class="fa-solid fa-th-list"></i> Danh mục</a></li>
+        <li role="none"><a role="menuitem" href="#footer"><i class="fa-solid fa-info-circle"></i> Liên hệ</a></li>
       </ul>
-      <div class="menu-social">
-        <a href="https://ko-fi.com/brhutcraft" target="_blank" rel="noopener" class="social-link" aria-label="Ủng hộ trên Ko-fi"><i class="fas fa-mug-hot"></i></a>
+      <div class="menu-social" aria-label="Mạng xã hội">
+        <a href="https://ko-fi.com/brhut" target="_blank" rel="noopener" class="social-link" aria-label="Ko-fi"><i class="fa-brands fa-kickstarter-k"></i></a>
+        <a href="https://www.youtube.com/@BrHut" target="_blank" rel="noopener" class="social-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://www.facebook.com/brhutcraft" target="_blank" rel="noopener" class="social-link" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
       </div>
     </nav>
   </aside>
 
+  <!-- Header -->
   <header id="top">
     <h1>BrHut - Sống Gần Thiên Nhiên</h1>
-    <p>Chia sẻ hành trình tự lập, làm nhà và thủ công từ thiên nhiên, đơn giản, tinh tế và bền vững.</p>
-    <a href="/projects" class="button" aria-label="Xem dự án">Xem dự án</a>
+    <p>Hành trình tự lập giữa thiên nhiên, làm nhà, làm đồ thủ công và chia sẻ cuộc sống chân thật, yên bình.</p>
+    <a href="#categories" class="button" aria-label="Xem các danh mục">Khám phá ngay</a>
   </header>
 
-  <section class="quotes-slider-section" aria-label="Trích dẫn truyền cảm hứng">
+  <!-- Quotes Slider Section -->
+  <section id="quotes" class="quotes-slider-section" aria-label="Trích dẫn ý nghĩa">
     <div class="quotes-slider-wrapper">
-      <div class="quote-item" role="blockquote">
+      <article class="quote-item" aria-live="polite">
         <blockquote>
-          <p>"Hạnh phúc không phải là điểm đến, mà là hành
+          <p>"Cuộc sống gần thiên nhiên không phải là lối thoát, mà là trở về." – BrHut</p>
+        </blockquote>
+      </article>
+      <article class="quote-item" aria-live="polite">
+        <blockquote>
+          <p>"Hạnh phúc là những điều giản dị, tự tay làm và cảm nhận bằng trái tim." – BrHut</p>
+        </blockquote>
+      </article>
+      <article class="quote-item" aria-live="polite">
+        <blockquote>
+          <p>"Tự lập là cách để ta sống thật, sống đẹp và sống vui mỗi ngày." – BrHut</p>
+        </blockquote>
+      </article>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section id="categories" class="categories" aria-label="Danh mục chủ đề">
+    <article class="category" tabindex="0">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Làm nhà từ thiên nhiên" />
+      <div class="category-content">Làm Nhà Từ Thiên Nhiên</div>
+    </article>
+    <article class="category" tabindex="0">
+      <img src="https://images.unsplash.com/photo-1519741492731-8a8d637c3697?auto=format&fit=crop&w=400&q=80" alt="Làm đồ thủ công handmade" />
+      <div class="category-content">Đồ Thủ Công Handmade</div>
+    </article>
+    <article class="category" tabindex="0">
+      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80" alt="Cuộc sống gần gũi thiên nhiên" />
+      <div class="category-content">Cuộc Sống Gần Gũi Thiên Nhiên</div>
+    </article>
+    <article class="category" tabindex="0">
+      <img src="https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?auto=format&fit=crop&w=400&q=80" alt="Tips sinh tồn và kỹ năng sống" />
+      <div class="category-content">Tips Sinh Tồn & Kỹ Năng Sống</div>
+    </article>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <p>© 2025 BrHut. Email liên hệ: <a href="mailto:BrHutCraft@gmail.com">BrHutCraft@gmail.com</a></p>
+  </footer>
+
+  <script>
+    // Menu Mobile toggle
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const overlay = document.querySelector('.mobile-menu-overlay');
+    const closeBtn = document.querySelector('.close-btn');
+
+    function openMenu() {
+      mobileMenu.classList.add('active');
+      overlay.style.display = 'block';
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      hamburger.setAttribute('aria-expanded', 'true');
+      // Focus first link
+      mobileMenu.querySelector('a').focus();
+    }
+
+    function closeMenu() {
+      mobileMenu.classList.remove('active');
+      overlay.style.display = 'none';
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      hamburger.setAttribute('aria-expanded', 'false');
+      hamburger.focus();
+    }
+
+    hamburger.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu);
+
+    // Close menu on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+        closeMenu();
+      }
+    });
+  </script>
+
+</body>
+</html>
