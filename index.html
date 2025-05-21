@@ -3,303 +3,406 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BrHut - Nhà Của Sự Đơn Giản</title>
-  <!-- Font Awesome cho icon -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  />
+  <title>BrHut - Tối Giản</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@300;500&display=swap" rel="stylesheet" />
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
   <style>
-    /* Reset cơ bản */
+    /* CSS nội bộ theo yêu cầu bạn */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@300;500&display=swap');
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
-      background-color: #121212; /* nền đậu đen */
-      color: #eee;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Poppins', 'Roboto', sans-serif;
+      background-color: #002b36;
+      color: #e0e0e0;
+      line-height: 1.5;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-    }
-    a {
-      color: inherit;
-      text-decoration: none;
+      overflow-x: hidden;
     }
 
-    /* Navbar tối giản */
-    nav.navbar {
-      background-color: #1a1a1a;
+    a {
+      color: #81c784;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #a5d6a7;
+    }
+
+    .navbar {
       display: flex;
-      justify-content: center;
-      gap: 40px;
-      padding: 14px 0;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background-color: #014d40;
       position: sticky;
       top: 0;
       z-index: 1000;
     }
-    nav.navbar a {
-      font-size: 28px;
-      transition: color 0.3s ease;
-      position: relative;
+
+    .nav-left {
       display: flex;
       align-items: center;
-      justify-content: center;
-      width: 42px;
+      gap: 14px;
+    }
+
+    .nav-logo img {
       height: 42px;
+      filter: brightness(0) invert(1);
     }
-    nav.navbar a:hover {
-      color: #f3a712;
+
+    .desktop-nav-links {
+      display: flex;
+      list-style: none;
+      margin-left: 10px;
+      gap: 22px;
+      font-weight: 600;
+      font-size: 1rem;
     }
-    nav.navbar a[title]::after {
-      content: attr(title);
-      position: absolute;
-      bottom: -30px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #333;
-      padding: 5px 10px;
-      border-radius: 6px;
-      font-size: 12px;
-      color: #fff;
-      white-space: nowrap;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-      z-index: 10;
+
+    .desktop-nav-links li a {
+      color: #c8e6c9;
+      padding: 6px 0;
+      border-bottom: 2px solid transparent;
     }
-    nav.navbar a:hover[title]::after {
-      opacity: 1;
+
+    .desktop-nav-links li a:hover,
+    .desktop-nav-links li a.active {
+      border-bottom: 2px solid #81c784;
+      color: #81c784;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      color: #a5d6a7;
+      cursor: pointer;
+      margin-left: 15px;
+    }
+
+    .nav-right .kofi-icon i {
+      font-size: 1.5rem;
+      color: #81c784;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .nav-right .kofi-icon:hover i {
+      color: #a5d6a7;
+    }
+
+    /* Mobile menu */
+
+    .mobile-menu-overlay {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: none;
+      z-index: 999;
+    }
+
+    .mobile-menu-wrapper {
+      position: fixed;
+      top: 0; right: 0;
+      width: 270px;
+      height: 100vh;
+      background-color: #014d40;
+      box-shadow: -2px 0 6px rgba(0,0,0,0.5);
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      padding: 25px 20px;
+    }
+
+    .mobile-menu-wrapper.active {
+      transform: translateX(0);
+    }
+
+    .mobile-menu {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 1.6rem;
+      color: #a5d6a7;
+      align-self: flex-end;
+      cursor: pointer;
+    }
+
+    .mobile-menu .nav-links {
+      list-style: none;
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .mobile-menu .nav-links li a {
+      color: #c8e6c9;
+      font-weight: 600;
+      font-size: 1.15rem;
+    }
+
+    .mobile-menu .nav-links li a:hover {
+      color: #81c784;
+    }
+
+    .menu-social {
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      margin-top: 40px;
+    }
+
+    .menu-social .social-link {
+      font-size: 1.4rem;
+      color: #81c784;
+      transition: color 0.3s ease;
+    }
+
+    .menu-social .social-link:hover {
+      color: #a5d6a7;
     }
 
     /* Header */
-    header {
+
+    header#top {
+      padding: 100px 20px 60px;
       text-align: center;
-      padding: 70px 20px 50px 20px;
-      background-color: #1a1a1a;
-      user-select: none;
+      background: linear-gradient(135deg, #014d40cc, #002b36cc);
     }
+
     header h1 {
-      font-size: 2.4rem;
+      font-size: 2.8rem;
       font-weight: 700;
-      margin-bottom: 15px;
-      color: #f3a712;
-      letter-spacing: 0.03em;
+      color: #a5d6a7;
+      margin-bottom: 18px;
+      letter-spacing: 1.2px;
     }
+
     header p {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 300;
       font-size: 1.15rem;
-      max-width: 600px;
-      margin: 0 auto 25px;
-      color: #ddd;
+      max-width: 540px;
+      margin: 0 auto 35px;
+      color: #c8e6c9;
       line-height: 1.6;
     }
-    header a.button {
-      background-color: #f3a712;
-      color: #121212;
-      font-weight: 600;
+
+    header .button {
+      background-color: #81c784;
+      color: #002b36;
       padding: 12px 28px;
-      border-radius: 30px;
+      border-radius: 28px;
+      font-weight: 600;
       font-size: 1rem;
+      text-transform: uppercase;
+      box-shadow: 0 6px 10px #4caf5080;
       transition: background-color 0.3s ease;
       display: inline-block;
-      user-select: none;
-    }
-    header a.button:hover {
-      background-color: #d18b0f;
     }
 
-    /* Quotes section */
+    header .button:hover {
+      background-color: #a5d6a7;
+    }
+
+    /* Quotes slider section */
+
     .quotes-slider-section {
-      background-color: #121212;
-      padding: 40px 15px;
+      padding: 50px 15px 50px;
+      background-color: #013935;
       max-width: 900px;
-      margin: 0 auto 60px;
+      margin: 0 auto 50px;
+      border-radius: 12px;
+      box-shadow: 0 0 18px #014d4077;
+      color: #c8e6c9;
       font-style: italic;
-      color: #ccc;
-      font-size: 1.15rem;
-      text-align: center;
-      line-height: 1.5;
-      user-select: none;
-    }
-    .quotes-slider-section svg {
-      vertical-align: middle;
-      stroke: #f3a712;
-      margin-right: 8px;
-    }
-    .quote-item {
-      margin-bottom: 25px;
+      font-weight: 400;
     }
 
-    /* Categories */
+    .quotes-slider-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .quote-item blockquote p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    /* Categories section */
+
     .categories {
       display: flex;
       justify-content: center;
-      gap: 30px;
-      max-width: 1000px;
-      margin: 0 auto 80px;
-      padding: 0 10px;
-      user-select: none;
+      gap: 24px;
+      flex-wrap: wrap;
+      padding: 30px 15px 60px;
+      max-width: 1080px;
+      margin: 0 auto 100px;
     }
+
     .category {
-      background-color: #1a1a1a;
-      border-radius: 15px;
+      flex: 1 1 280px;
+      border-radius: 14px;
       overflow: hidden;
-      flex: 1;
       cursor: pointer;
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.6);
-      transition: box-shadow 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      color: #eee;
-      font-weight: 600;
-      font-size: 1.1rem;
-      min-width: 220px;
+      box-shadow: 0 6px 12px #014d40cc;
+      transition: transform 0.3s ease;
+      background-color: #013935;
     }
+
     .category:hover {
-      box-shadow: 0 6px 20px rgba(243, 167, 18, 0.8);
+      transform: scale(1.05);
     }
+
     .category img {
       width: 100%;
-      height: 160px;
+      height: 170px;
       object-fit: cover;
-      border-bottom: 2px solid #f3a712;
-      user-select: none;
+      filter: brightness(0.9);
+      transition: filter 0.3s ease;
     }
+
+    .category:hover img {
+      filter: brightness(1);
+    }
+
     .category-content {
-      padding: 15px 10px 18px;
+      padding: 16px 12px;
+      text-align: center;
+      color: #a5d6a7;
+      font-weight: 600;
+      font-size: 1.15rem;
+      letter-spacing: 0.03em;
     }
 
     /* Footer */
+
     footer {
-      background-color: #1a1a1a;
-      padding: 15px 0 30px;
+      background-color: #014d40;
+      padding: 25px 15px;
       text-align: center;
-      font-size: 13px;
-      color: #888;
-      user-select: none;
+      color: #81c784;
+      font-weight: 500;
+      font-size: 0.9rem;
     }
+
     footer a {
-      color: #f3a712;
+      color: #a5d6a7;
       font-weight: 600;
     }
+
     .footer-social {
-      margin-top: 12px;
+      margin-top: 18px;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
     }
-    .footer-social a {
-      font-size: 20px;
-      margin: 0 10px;
-      color: #eee;
+
+    .footer-social .social-link {
+      font-size: 1.4rem;
+      color: #81c784;
       transition: color 0.3s ease;
-      display: inline-block;
     }
-    .footer-social a:hover {
-      color: #f3a712;
+
+    .footer-social .social-link:hover {
+      color: #a5d6a7;
     }
 
     /* Responsive */
-    @media (max-width: 720px) {
+
+    @media screen and (max-width: 900px) {
+      .desktop-nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
+
+    @media screen and (max-width: 650px) {
       .categories {
         flex-direction: column;
-        gap: 20px;
+        align-items: center;
       }
+
       .category {
-        max-width: 100%;
+        max-width: 320px;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Thanh điều hướng với icon -->
   <nav class="navbar">
-    <a href="index.html" title="Trang chủ"><i class="fas fa-home"></i></a>
-    <a href="dothucong.html" title="Thủ công"><i class="fas fa-hammer"></i></a>
-    <a href="vuonuomxanh.html" title="Vườn ươm"><i class="fas fa-seedling"></i></a>
-    <a href="goikynang.html" title="Kỹ năng"><i class="fas fa-toolbox"></i></a>
-    <a href="manhung.html" title="Các Shorts"><i class="fas fa-video"></i></a>
+    <div class="nav-left">
+      <a href="/" class="nav-logo" aria-label="BrHut Logo">
+        <img src="https://brhut.com/logo.png" alt="BrHut" />
+      </a>
+      <ul class="desktop-nav-links" role="list">
+        <li><a href="/" class="active" aria-current="page" title="Trang chủ"><i class="fas fa-house"></i></a></li>
+        <li><a href="/projects" title="Dự án"><i class="fas fa-layer-group"></i></a></li>
+        <li><a href="/gallery" title="Thư viện"><i class="fas fa-image"></i></a></li>
+        <li><a href="/about" title="Về chúng tôi"><i class="fas fa-info-circle"></i></a></li>
+        <li><a href="/contact" title="Liên hệ"><i class="fas fa-envelope"></i></a></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <a href="https://ko-fi.com/brhutcraft" class="kofi-icon" target="_blank" rel="noopener" aria-label="Ủng hộ trên Ko-fi">
+        <i class="fas fa-mug-hot"></i>
+      </a>
+      <button class="hamburger" aria-label="Mở menu" aria-expanded="false" aria-controls="mobile-menu"><i class="fas fa-bars"></i></button>
+    </div>
   </nav>
 
-  <!-- Header chính -->
-  <header>
-    <h1>Nhà Của Sự Đơn Giản</h1>
-    <p>Nơi mình chậm rãi dựng nên những điều đơn sơ: một mái lều, vài món đồ thủ công, và những khoảnh khắc yên bình.</p>
-    <a href="about.html" class="button">Xem thêm</a>
+  <!-- Mobile Menu -->
+  <div class="mobile-menu-overlay" tabindex="-1"></div>
+  <aside id="mobile-menu" class="mobile-menu-wrapper" aria-hidden="true">
+    <nav class="mobile-menu" role="navigation" aria-label="Menu điều hướng chính">
+      <button class="close-btn" aria-label="Đóng menu"><i class="fas fa-times"></i></button>
+      <ul class="nav-links" role="list">
+        <li><a href="/" aria-current="page"><i class="fas fa-house"></i> Trang chủ</a></li>
+        <li><a href="/projects"><i class="fas fa-layer-group"></i> Dự án</a></li>
+        <li><a href="/gallery"><i class="fas fa-image"></i> Thư viện</a></li>
+        <li><a href="/about"><i class="fas fa-info-circle"></i> Về chúng tôi</a></li>
+        <li><a href="/contact"><i class="fas fa-envelope"></i> Liên hệ</a></li>
+      </ul>
+      <div class="menu-social">
+        <a href="https://ko-fi.com/brhutcraft" target="_blank" rel="noopener" class="social-link" aria-label="Ủng hộ trên Ko-fi"><i class="fas fa-mug-hot"></i></a>
+      </div>
+    </nav>
+  </aside>
+
+  <header id="top">
+    <h1>BrHut - Sống Gần Thiên Nhiên</h1>
+    <p>Chia sẻ hành trình tự lập, làm nhà và thủ công từ thiên nhiên, đơn giản, tinh tế và bền vững.</p>
+    <a href="/projects" class="button" aria-label="Xem dự án">Xem dự án</a>
   </header>
 
-  <!-- Quotes dạng đơn giản -->
-  <section class="quotes-slider-section" aria-label="Những câu nói truyền cảm hứng">
-    <div class="quote-item">
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        aria-hidden="true"
-      >
-        <path d="M3 12h18M15 6l6 6-6 6" />
-      </svg>
-      "Tìm về sự đơn giản không phải là từ bỏ những điều lớn lao, mà là tìm thấy giá trị thật sự trong những khoảnh khắc nhỏ bé và chân thực nhất."
-    </div>
-    <div class="quote-item">
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        aria-hidden="true"
-      >
-        <path d="M3 12h18M15 6l6 6-6 6" />
-      </svg>
-      "Mỗi món đồ thủ công đều mang trong mình một câu chuyện, một chút mồ hôi và tâm huyết của người tạo ra nó. Đó là vẻ đẹp mà máy móc không bao giờ sao chép được."
-    </div>
-    <div class="quote-item">
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        aria-hidden="true"
-      >
-        <path d="M3 12h18M15 6l6 6-6 6" />
-      </svg>
-      "Giá trị chân thật không chỉ nằm ở thành phẩm cuối cùng, mà ở từng vòng xoay nỗ lực, từng giọt mồ hôi và tâm hồn bạn đặt vào hành trình kiến tạo."
-    </div>
-  </section>
-
-  <!-- Danh mục chính (có thể thêm hoặc thay hình) -->
-  <section class="categories" aria-label="Danh mục nội dung">
-    <a href="dothucong.html" class="category" title="Đồ Thủ Công">
-      <img src="https://brhut.wordpress.com/wp-content/uploads/2025/05/cover_174531.jpg" alt="Đồ Thủ Công" />
-      <div class="category-content">Thủ công</div>
-    </a>
-    <a href="vuonuomxanh.html" class="category" title="Vườn Ươm Xanh">
-      <img src="https://brhut.wordpress.com/wp-content/uploads/2025/05/vuon_uom.jpg" alt="Vườn Ươm Xanh" />
-      <div class="category-content">Vườn ươm</div>
-    </a>
-    <a href="goikynang.html" class="category" title="Kỹ Năng">
-      <img src="https://brhut.wordpress.com/wp-content/uploads/2025/05/ky_nang.jpg" alt="Kỹ Năng" />
-      <div class="category-content">Kỹ năng</div>
-    </a>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    © 2025 BrHut. Email: <a href="mailto:BrHutCraft@gmail.com">BrHutCraft@gmail.com</a><br />
-    <div class="footer-social" aria-label="Li
+  <section class="quotes-slider-section" aria-label="Trích dẫn truyền cảm hứng">
+    <div class="quotes-slider-wrapper">
+      <div class="quote-item" role="blockquote">
+        <blockquote>
+          <p>"Hạnh phúc không phải là điểm đến, mà là hành
