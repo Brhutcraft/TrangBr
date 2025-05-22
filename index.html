@@ -31,8 +31,6 @@
       /* Định nghĩa font-family dưới dạng biến CSS */
       --font-family-serif: 'Lora', serif;
       --font-family-sans-serif: 'Open Sans', sans-serif;
-
-      --animation-duration: 0.8s; /* Thời gian animation */
     }
 
     * {
@@ -87,7 +85,7 @@
         font-family: var(--font-family-sans-serif);
         color: var(--white); /* Tiêu đề vẫn dùng màu trắng không chói */
     }
-
+    
     /* Navbar */
     .navbar {
       display: flex;
@@ -277,36 +275,6 @@
     .mobile-menu-social .social-link:hover {
         color: var(--primary-color); /* Màu khi hover */
         transform: scale(1.1);
-    }
-
-    /* Thêm hiệu ứng chữ hiện lên */
-    .reveal {
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity var(--animation-duration) ease-out, transform var(--animation-duration) ease-out;
-      transform: translateY(20px); /* Mặc định trượt lên từ dưới */
-    }
-
-    .reveal.aos-animate {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-
-    .reveal-from-top {
-      transform: translateY(-20px);
-    }
-
-    .reveal-from-bottom {
-      transform: translateY(20px);
-    }
-
-    .reveal-from-left {
-      transform: translateX(-20px);
-    }
-
-    .reveal-from-right {
-      transform: translateX(20px);
     }
 
     /* Main Body Sections */
@@ -945,31 +913,31 @@
   <main>
     <section class="hero-section" id="hero-section">
         <div class="hero-content" data-aos="fade-up">
-            <h1 class="reveal reveal-from-bottom">BrHut: Kiến Tạo Vẻ Đẹp Từ Sự Tinh Túy</h1>
-            <p class="reveal reveal-from-top" data-aos-delay="200">Khám phá thế giới BrHut – nơi chúng tôi chắt lọc tinh hoa từ thiên nhiên và đôi tay tài hoa, mang đến những sản phẩm thủ công độc đáo, đậm chất mộc mạc và bình yên.</p>
-            <a href="about.html" class="button reveal reveal-from-left" data-aos-delay="400">Khám Phá Câu Chuyện</a>
+            <h1>BrHut: Kiến Tạo Vẻ Đẹp Từ Sự Tinh Túy</h1>
+            <p>Khám phá thế giới BrHut – nơi chúng tôi chắt lọc tinh hoa từ thiên nhiên và đôi tay tài hoa, mang đến những sản phẩm thủ công độc đáo, đậm chất mộc mạc và bình yên.</p>
+            <a href="about.html" class="button">Khám Phá Câu Chuyện</a>
         </div>
     </section>
 
     <section class="feature-section">
         <div class="container">
-            <h2 class="reveal reveal-from-right" data-aos="fade-up">Triết Lý Sáng Tạo Của BrHut</h2>
-            <p class="reveal reveal-from-left" data-aos="fade-up" data-aos-delay="150">Tại BrHut, chúng tôi tin rằng vẻ đẹp thực sự nằm trong sự giản dị, và giá trị được tạo nên từ tâm huyết. Mỗi sản phẩm không chỉ là vật chất mà còn là câu chuyện, là hơi thở của thiên nhiên và dấu ấn của sự sáng tạo không ngừng.</p>
+            <h2 data-aos="fade-up">Triết Lý Sáng Tạo Của BrHut</h2>
+            <p data-aos="fade-up" data-aos-delay="150">Tại BrHut, chúng tôi tin rằng vẻ đẹp thực sự nằm trong sự giản dị, và giá trị được tạo nên từ tâm huyết. Mỗi sản phẩm không chỉ là vật chất mà còn là câu chuyện, là hơi thở của thiên nhiên và dấu ấn của sự sáng tạo không ngừng.</p>
             <div class="feature-grid">
                 <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
-                    <i class="fas fa-leaf reveal reveal-from-top"></i>
-                    <h3 class="reveal reveal-from-left">Kết Nối Thiên Nhiên</h3>
-                    <p class="reveal reveal-from-right">Sử dụng vật liệu tự nhiên, thân thiện môi trường, đưa hơi thở của đất trời vào từng chi tiết. Chúng tôi trân trọng sự tinh khiết của nguyên liệu và quy trình chế tác thủ công, đảm bảo mỗi sản phẩm là một minh chứng cho sự hài hòa giữa con người và thiên nhiên.</p>
+                    <i class="fas fa-leaf"></i>
+                    <h3>Kết Nối Thiên Nhiên</h3>
+                    <p>Sử dụng vật liệu tự nhiên, thân thiện môi trường, đưa hơi thở của đất trời vào từng chi tiết. Chúng tôi trân trọng sự tinh khiết của nguyên liệu và quy trình chế tác thủ công, đảm bảo mỗi sản phẩm là một minh chứng cho sự hài hòa giữa con người và thiên nhiên.</p>
                 </div>
                 <div class="feature-item" data-aos="fade-up" data-aos-delay="450">
-                    <i class="fas fa-hand-sparkles reveal reveal-from-bottom"></i>
-                    <h3 class="reveal reveal-from-right">Thủ Công Tinh Xảo</h3>
-                    <p class="reveal reveal-from-left">Mỗi sản phẩm là một tác phẩm nghệ thuật, được chế tác thủ công tỉ mỉ với đam mê và sự khéo léo. Từ những đường nét đầu tiên cho đến khi hoàn thiện, chúng tôi đặt trọn tâm hồn vào từng chi tiết, tạo nên vẻ đẹp độc đáo và vượt thời gian.</p>
+                    <i class="fas fa-hand-sparkles"></i>
+                    <h3>Thủ Công Tinh Xảo</h3>
+                    <p>Mỗi sản phẩm là một tác phẩm nghệ thuật, được chế tác thủ công tỉ mỉ với đam mê và sự khéo léo. Từ những đường nét đầu tiên cho đến khi hoàn thiện, chúng tôi đặt trọn tâm hồn vào từng chi tiết, tạo nên vẻ đẹp độc đáo và vượt thời gian.</p>
                 </div>
                 <div class="feature-item" data-aos="fade-up" data-aos-delay="600">
-                    <i class="fas fa-lightbulb reveal reveal-from-top"></i>
-                    <h3 class="reveal reveal-from-left">Lối Sống Tối Giản</h3>
-                    <p class="reveal reveal-from-right">BrHut khuyến khích sự trân trọng những giá trị cốt lõi, tìm thấy bình yên trong sự đơn giản và tinh tế. Chúng tôi tin rằng cuộc sống đích thực không nằm ở sự phô trương, mà ở việc cảm nhận vẻ đẹp từ những điều chân thật và gần gũi nhất.</p>
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Lối Sống Tối Giản</h3>
+                    <p>BrHut khuyến khích sự trân trọng những giá trị cốt lõi, tìm thấy bình yên trong sự đơn giản và tinh tế. Chúng tôi tin rằng cuộc sống đích thực không nằm ở sự phô trương, mà ở việc cảm nhận vẻ đẹp từ những điều chân thật và gần gũi nhất.</p>
                 </div>
             </div>
         </div>
@@ -977,32 +945,32 @@
 
     <section class="experience-section">
         <div class="container">
-            <h2 class="reveal reveal-from-bottom" data-aos="fade-up">Trải Nghiệm BrHut Đa Dạng</h2>
+            <h2 data-aos="fade-up">Trải Nghiệm BrHut Đa Dạng</h2>
 
             <div class="experience-card" data-aos="fade-up">
                 <div class="experience-card-image" style="background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_17453199661767419986561943264097.png');"></div>
                 <div class="experience-card-content">
-                    <h3 class="reveal reveal-from-left">Nghệ Thuật Thủ Công Độc Đáo</h3>
-                    <p class="reveal reveal-from-right">Khám phá bộ sưu tập độc đáo của những vật phẩm được làm hoàn toàn bằng tay, từ gốm sứ mộc mạc, đồ gỗ tinh tế đến phụ kiện dệt thủ công. Mỗi món đồ là sự kết hợp giữa kỹ thuật truyền thống và cảm hứng hiện đại, mang đến vẻ đẹp riêng biệt và tinh hoa của sự sáng tạo cho không gian sống của bạn.</p>
-                    <a href="dothucong.html" class="button reveal reveal-from-bottom">Xem Thêm</a>
+                    <h3>Nghệ Thuật Thủ Công Độc Đáo</h3>
+                    <p>Khám phá bộ sưu tập độc đáo của những vật phẩm được làm hoàn toàn bằng tay, từ gốm sứ mộc mạc, đồ gỗ tinh tế đến phụ kiện dệt thủ công. Mỗi món đồ là sự kết hợp giữa kỹ thuật truyền thống và cảm hứng hiện đại, mang đến vẻ đẹp riêng biệt và tinh hoa của sự sáng tạo cho không gian sống của bạn.</p>
+                    <a href="dothucong.html" class="button">Xem Thêm</a>
                 </div>
             </div>
 
             <div class="experience-card" data-aos="fade-up">
                 <div class="experience-card-image" style="background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_1745331932592854088223531181729.png');"></div>
                 <div class="experience-card-content">
-                    <h3 class="reveal reveal-from-right">Không Gian Xanh & Vườn Ươm</h3>
-                    <p class="reveal reveal-from-left">Đưa thiên nhiên vào ngôi nhà bạn với các giải pháp xanh từ BrHut. Khám khám phá các loại cây cảnh độc đáo, chậu cây thủ công, và các vật dụng cần thiết để tạo nên một không gian xanh tươi mát, bình yên và gần gũi với thiên nhiên. Chúng tôi cung cấp những gợi ý để bạn có thể tự tay kiến tạo ốc đảo xanh của riêng mình.</p>
-                    <a href="vuonuomxanh.html" class="button reveal reveal-from-top">Tìm Hiểu Ngay</a>
+                    <h3>Không Gian Xanh & Vườn Ươm</h3>
+                    <p>Đưa thiên nhiên vào ngôi nhà bạn với các giải pháp xanh từ BrHut. Khám khám phá các loại cây cảnh độc đáo, chậu cây thủ công, và các vật dụng cần thiết để tạo nên một không gian xanh tươi mát, bình yên và gần gũi với thiên nhiên. Chúng tôi cung cấp những gợi ý để bạn có thể tự tay kiến tạo ốc đảo xanh của riêng mình.</p>
+                    <a href="vuonuomxanh.html" class="button">Tìm Hiểu Ngay</a>
                 </div>
             </div>
 
             <div class="experience-card" data-aos="fade-up">
                 <div class="experience-card-image" style="background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_17458175842903752646802185968006.png');"></div>
                 <div class="experience-card-content">
-                    <h3 class="reveal reveal-from-left">Học Hỏi & Chia Sẻ Kỹ Năng</h3>
-                    <p class="reveal reveal-from-right">BrHut không chỉ là nơi mua sắm, mà còn là cộng đồng của những người đam mê sáng tạo. Tham gia các khóa học, workshop và cùng chia sẻ kinh nghiệm về thủ công, làm vườn, và nhiều kỹ năng thú vị khác để phát triển bản thân và kết nối những tâm hồn đồng điệu. Hãy để BrHut là nơi bạn tìm thấy nguồn cảm hứng bất tận.</p>
-                    <a href="goikynang.html" class="button reveal reveal-from-bottom">Tham Gia Cộng Đồng</a>
+                    <h3>Học Hỏi & Chia Sẻ Kỹ Năng</h3>
+                    <p>BrHut không chỉ là nơi mua sắm, mà còn là cộng đồng của những người đam mê sáng tạo. Tham gia các khóa học, workshop và cùng chia sẻ kinh nghiệm về thủ công, làm vườn, và nhiều kỹ năng thú vị khác để phát triển bản thân và kết nối những tâm hồn đồng điệu. Hãy để BrHut là nơi bạn tìm thấy nguồn cảm hứng bất tận.</p>
+                    <a href="goikynang.html" class="button">Tham Gia Cộng Đồng</a>
                 </div>
             </div>
         </div>
@@ -1010,7 +978,7 @@
 
     <section class="quotes-slider-section" data-aos="fade-up">
         <div class="container">
-            <h2 class="reveal reveal-from-top">
+            <h2>
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                 </svg>
@@ -1019,33 +987,33 @@
             <div class="quotes-slider-wrapper">
                 <article class="quote-item active">
                     <blockquote>
-                        <p class="reveal reveal-from-left">"Đơn giản không phải là từ bỏ nhiều thứ, mà là tìm thấy giá trị đích thực trong những khoảnh khắc bình dị và chân thực nhất."</p>
+                        <p>"Đơn giản không phải là từ bỏ nhiều thứ, mà là tìm thấy giá trị đích thực trong những khoảnh khắc bình dị và chân thực nhất."</p>
                     </blockquote>
-                    <span class="quote-author reveal reveal-from-right">– BrHut</span>
+                    <span class="quote-author">– BrHut</span>
                 </article>
                 <article class="quote-item">
                      <blockquote>
-                        <p class="reveal reveal-from-left">"Mỗi sản phẩm thủ công là một câu chuyện, đong đầy tâm huyết và sự khéo léo – vẻ đẹp độc đáo không thể sao chép."</p>
+                        <p>"Mỗi sản phẩm thủ công là một câu chuyện, đong đầy tâm huyết và sự khéo léo – vẻ đẹp độc đáo không thể sao chép."</p>
                     </blockquote>
-                    <span class="quote-author reveal reveal-from-right">– BrHut</span>
+                    <span class="quote-author">– BrHut</span>
                 </article>
                 <article class="quote-item">
                      <blockquote>
-                        <p class="reveal reveal-from-left">"Giá trị đích thực của sáng tạo không nằm ở thành phẩm, mà ở hành trình nỗ lực, tâm huyết và tinh thần bạn gửi gắm vào từng chi tiết."</p>
+                        <p>"Giá trị đích thực của sáng tạo không nằm ở thành phẩm, mà ở hành trình nỗ lực, tâm huyết và tinh thần bạn gửi gắm vào từng chi tiết."</p>
                     </blockquote>
-                    <span class="quote-author reveal reveal-from-right">– BrHut</span>
+                    <span class="quote-author">– BrHut</span>
                 </article>
                 <article class="quote-item">
                      <blockquote>
-                        <p class="reveal reveal-from-left">"Giữa bộn bề cuộc sống, hãy tìm về bình yên trong nhịp điệu sáng tạo, nơi tâm trí và đôi tay hòa quyện thành một."</p>
+                        <p>"Giữa bộn bề cuộc sống, hãy tìm về bình yên trong nhịp điệu sáng tạo, nơi tâm trí và đôi tay hòa quyện thành một."</p>
                     </blockquote>
-                    <span class="quote-author reveal reveal-from-right">– BrHut</span>
+                    <span class="quote-author">– BrHut</span>
                 </article>
                  <article class="quote-item">
                      <blockquote>
-                        <p class="reveal reveal-from-left">"Lắng nghe tiếng cây cỏ, cảm nhận hơi thở của đất – đó là cách ta kết nối lại với nguồn cội và tìm thấy sự thanh bình nội tâm."</p>
+                        <p>"Lắng nghe tiếng cây cỏ, cảm nhận hơi thở của đất – đó là cách ta kết nối lại với nguồn cội và tìm thấy sự thanh bình nội tâm."</p>
                     </blockquote>
-                    <span class="quote-author reveal reveal-from-right">– BrHut</span>
+                    <span class="quote-author">– BrHut</span>
                 </article>
             </div>
         </div>
@@ -1053,21 +1021,26 @@
 
     <section class="cta-section" data-aos="fade-up">
         <div class="container">
-            <h2 class="reveal reveal-from-bottom">Sẵn Sàng Khám Phá Thế Giới BrHut?</h2>
-            <p class="reveal reveal-from-top">Tham gia cùng chúng tôi để bắt đầu hành trình sáng tạo, kết nối với thiên nhiên và tìm thấy những giá trị đích thực trong từng sản phẩm thủ công tinh tế.</p>
-            <a href="contact.html" class="button reveal reveal-from-left">Liên Hệ Ngay</a>
+            <h2>Sẵn Sàng Khám Phá Thế Giới BrHut?</h2>
+            <p>Tham gia cùng chúng tôi để bắt đầu hành trình sáng tạo, kết nối với thiên nhiên và tìm thấy những giá trị đích thực trong từng sản phẩm thủ công tinh tế.</p>
+            <a href="contact.html" class="button">Liên Hệ Ngay</a>
         </div>
     </section>
 
   </main>
 
   <footer data-aos="fade-in">
-    
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>Về BrHut</h4>
+        <div class="footer-logo">
+            <img src="https://brhut.wordpress.com/wp-content/uploads/2025/05/b612_20250511_234528_6708954434651733151299.jpg" alt="BrHut Logo Footer">
+        </div>
         <p>Bản quyền © 2025 BrHut. Đã đăng ký bản quyền.</p>
         <p>Chúng tôi là BrHut, nơi tôn vinh vẻ đẹp của sự giản dị và giá trị đích thực của các sản phẩm thủ công tinh xảo.</p>
       </div>
       <div class="footer-col">
-
+        <h4>Liên Hệ</h4>
         <p>Mọi thắc mắc và hợp tác, vui lòng liên hệ:</p>
         <p><a href="mailto:BrHutCraft@gmail.com">BrHutCraft@gmail.com</a></p>
         <p>Địa chỉ: TP.HCM, Việt Nam</p>
