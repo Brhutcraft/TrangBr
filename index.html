@@ -1,1138 +1,474 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BrHut | Sáng Tạo & Lối Sống Tối Giản</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-  <style>
-    /* Reset and Base Styles */
-    :root {
-      --primary-color: #6B8E23; /* Olive Drab - Giữ nguyên */
-      --secondary-color: #D2B48C; /* Tan - Giữ nguyên */
-
-      /* MÀU SẮC ĐƯỢC TINH CHỈNH TỔNG THỂ */
-      --body-background: #1C242A; /* Nền chính - Xám xanh đậm ấm hơn */
-      --section-background: #252D36; /* Nền các section - Xám xanh đậm hơn một cấp */
-      --text-main-color: #D0D0D0; /* Chữ chính - Xám nhạt ấm hơn */
-      --text-sub-color: #A0A0A0; /* Chữ phụ - Xám trung bình ấm hơn */
-      --white: #F8F8F8; /* Trắng không quá chói */
-      --light-border: #4A5665; /* Màu mới cho border/divisor nếu cần */
-
-      --nav-height: 70px;
-
-      /* Định nghĩa font-family dưới dạng biến CSS */
-      --font-family-serif: 'Lora', serif;
-      --font-family-sans-serif: 'Open Sans', sans-serif;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: var(--font-family-sans-serif);
-      line-height: 1.7;
-      color: var(--text-main-color); /* Dùng màu chữ chính mới */
-      background-color: var(--body-background); /* Dùng màu nền chính mới */
-      overflow-x: hidden;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    ul {
-      list-style: none;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* Typography Settings */
-    h1, h2, h3 {
-        font-family: var(--font-family-serif);
-        color: var(--white); /* Tiêu đề vẫn dùng màu trắng không chói */
-        font-weight: 700;
-        letter-spacing: 0.03em;
-        text-align: center;
-        line-height: 1.3;
-    }
-    h4, h5, h6 {
-        font-family: var(--font-family-sans-serif);
-        color: var(--white); /* Tiêu đề vẫn dùng màu trắng không chói */
-    }
-    
-    /* Navbar */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: var(--nav-height);
-      padding: 0 2rem;
-      background-color: rgba(28, 36, 42, 0.98); /* Dùng màu nền chính mới với opacity */
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .nav-left {
-      display: flex;
-      align-items: center;
-    }
-
-    .nav-logo img {
-      height: 65px;
-      margin-right: 25px;
-      opacity: 0.4;
-      transition: opacity 0.3s ease;
-    }
-    .nav-logo img:hover {
-        opacity: 1;
-    }
-
-    .nav-links li {
-      display: inline-block;
-      margin-left: 30px;
-    }
-
-    .nav-links a {
-      color: var(--text-main-color); /* Dùng màu chữ chính mới */
-      font-weight: 400;
-      font-size: 0.95rem;
-      letter-spacing: 0.5px;
-      transition: color 0.3s ease;
-      font-family: var(--font-family-sans-serif);
-    }
-
-    .nav-links a:hover {
-      color: var(--primary-color);
-    }
-
-    .nav-right .kofi-icon {
-      position: relative;
-      font-size: 1.4rem;
-      color: var(--text-sub-color); /* Dùng màu chữ phụ mới */
-    }
-    .nav-right .kofi-icon:hover {
-        color: var(--primary-color);
-    }
-
-    .hamburger {
-      display: none;
-      font-size: 1.8rem;
-      cursor: pointer;
-      color: var(--text-sub-color); /* Dùng màu chữ phụ mới */
-    }
-
-    /* Mobile Menu */
-    .mobile-menu-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
-      z-index: 1001;
-      opacity: 0;
-      transition: opacity 0.3s ease-in-out;
-    }
-
-    .mobile-menu-overlay.active {
-      display: block;
-      opacity: 1;
-    }
-
-    .mobile-menu-wrapper {
-      position: fixed;
-      top: 0;
-      left: -300px;
-      width: 280px;
-      height: 100%;
-      background-color: var(--body-background); /* Dùng màu nền chính mới */
-      z-index: 1002;
-      padding-top: 20px;
-      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.4);
-      transition: left 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      display: flex; /* Sử dụng flexbox cho nội dung mobile menu */
-      flex-direction: column;
-      justify-content: space-between; /* Đẩy nội dung và social icons ra hai phía */
-    }
-
-    .mobile-menu-wrapper.active {
-      left: 0;
-    }
-
-    .mobile-menu {
-        display: flex;
-        flex-direction: column;
-        height: 100%; /* Đảm bảo mobile menu chiếm toàn bộ chiều cao wrapper */
-    }
-
-    .mobile-menu .close-btn {
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      background: none;
-      border: none;
-      font-size: 1.8rem;
-      cursor: pointer;
-      color: var(--text-sub-color); /* Dùng màu chữ phụ mới */
-    }
-
-    /* Mobile Menu - Branding & Social */
-    .mobile-menu-brand {
-        text-align: center;
-        padding: 20px 0 30px;
-        border-bottom: 1px solid var(--light-border);
-        margin-bottom: 20px;
-    }
-
-    .mobile-menu-brand img {
-        height: 60px; /* Điều chỉnh kích thước logo trong mobile menu */
-        opacity: 0.8;
-        transition: opacity 0.3s ease;
-        margin: 0 auto; /* Căn giữa logo */
-    }
-
-    .mobile-menu-brand img:hover {
-        opacity: 1;
-    }
-
-    .mobile-menu .nav-links {
-      display: flex;
-      flex-direction: column;
-      /* padding-top: 40px; */ /* Bỏ padding top cũ để logo có không gian */
-      flex-grow: 1; /* Để nav-links chiếm không gian còn lại */
-    }
-
-    .mobile-menu .nav-links li {
-      margin: 0;
-    }
-
-    .mobile-menu .nav-links a {
-      display: block;
-      padding: 15px 25px;
-      font-size: 1.1rem;
-      font-weight: 400;
-      color: var(--text-main-color); /* Dùng màu chữ chính mới */
-      transition: background-color 0.3s ease, color 0.3s ease;
-      border-bottom: 1px solid var(--light-border); /* Dùng màu border mới */
-      font-family: var(--font-family-sans-serif);
-    }
-     .mobile-menu .nav-links li:last-child a {
-        border-bottom: none;
-    }
-
-    .mobile-menu .nav-links a:hover {
-      background-color: var(--section-background); /* Dùng màu nền section mới */
-      color: var(--primary-color);
-    }
-
-    .mobile-menu-social {
-        display: flex;
-        justify-content: center; /* Căn giữa các icon */
-        padding: 20px 0;
-        border-top: 1px solid var(--light-border);
-        margin-top: auto; /* Đẩy phần social xuống dưới cùng */
-        gap: 15px; /* Khoảng cách giữa các icon */
-    }
-
-    .mobile-menu-social .social-link {
-        color: var(--text-sub-color);
-        font-size: 1.8rem; /* Kích thước icon */
-        transition: color 0.3s ease, transform 0.3s ease;
-    }
-
-    .mobile-menu-social .social-link:hover {
-        color: var(--primary-color); /* Màu khi hover */
-        transform: scale(1.1);
-    }
-
-    /* Main Body Sections */
-
-    /* Hero Section */
-    .hero-section {
-      background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('https://brhut.wordpress.com/wp-content/uploads/2025/05/full2kne1134848563423638875.jpg') no-repeat center center/cover;
-      height: 90vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: var(--white);
-      position: relative;
-      margin-top: var(--nav-height);
-    }
-
-    .hero-content {
-        max-width: 900px;
-        padding: 0 20px;
-    }
-
-    .hero-content h1 {
-        font-size: 4.5rem;
-        font-weight: 600;
-        margin-bottom: 1.5rem;
-        line-height: 1.2;
-        letter-spacing: 0.05em;
-        text-shadow: 0 4px 10px rgba(0,0,0,0.5);
-        position: relative;
-        padding-bottom: 20px;
-    }
-
-    .hero-content h1::after {
-        content: '';
-        display: block;
-        width: 100px;
-        height: 2px;
-        background-color: var(--secondary-color);
-        margin: 20px auto 0;
-        border-radius: 1px;
-        opacity: 0.8;
-    }
-
-    .hero-content p {
-        font-family: var(--font-family-serif);
-        font-size: 1.45rem;
-        margin-bottom: 3rem;
-        line-height: 1.7;
-        font-weight: 300;
-        letter-spacing: 0.5px;
-        max-width: 750px;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-    }
-
-    .button {
-      display: inline-block;
-      background-color: var(--primary-color);
-      color: var(--white);
-      padding: 15px 40px;
-      border-radius: 5px;
-      font-size: 1.05rem;
-      font-family: var(--font-family-sans-serif);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-      border: 2px solid transparent;
-    }
-
-    .button:hover {
-      background-color: #5a791e;
-      transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
-    }
-
-    /* General Section Padding */
-    section {
-        padding: 6rem 0;
-    }
-
-    /* Feature Section */
-    .feature-section {
-        background-color: var(--section-background); /* Dùng màu nền section mới */
-        text-align: center;
-    }
-
-    .feature-section h2 {
-        font-size: 3rem;
-        color: var(--primary-color);
-        margin-bottom: 1.5rem;
-        position: relative;
-        padding-bottom: 1rem;
-    }
-    .feature-section h2::after {
-        content: '';
-        display: block;
-        width: 80px;
-        height: 2px;
-        background-color: var(--secondary-color);
-        margin: 0.5rem auto 0;
-        border-radius: 1px;
-        opacity: 0.8;
-    }
-
-    .feature-section > p {
-        max-width: 900px;
-        margin: 0 auto 4rem;
-        font-size: 1.15rem;
-        line-height: 1.8;
-        color: var(--text-main-color); /* Dùng màu chữ chính mới */
-        text-align: justify;
-    }
-
-    .feature-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2.5rem;
-        margin-top: 3rem;
-    }
-
-    .feature-item {
-        background-color: var(--body-background); /* Dùng màu nền chính mới */
-        border-radius: 8px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-        padding: 2.5rem;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        text-align: left;
-    }
-
-    .feature-item:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    }
-
-    .feature-item i {
-        font-size: 2.8rem;
-        color: var(--secondary-color);
-        margin-bottom: 1.5rem;
-        display: block;
-        text-align: center;
-    }
-
-    .feature-item h3 {
-        font-size: 1.8rem;
-        color: var(--white);
-        margin-bottom: 1rem;
-        text-align: center;
-        font-weight: 600;
-    }
-
-    .feature-item p {
-        font-size: 1rem;
-        line-height: 1.7;
-        color: var(--text-sub-color); /* Dùng màu chữ phụ mới */
-        margin-bottom: 0;
-        text-align: justify;
-    }
-
-    /* Experience Section */
-    .experience-section {
-        background-color: var(--body-background); /* Dùng màu nền chính mới */
-        padding: 6rem 0;
-    }
-
-    .experience-section h2 {
-        font-size: 3rem;
-        color: var(--white);
-        margin-bottom: 3.5rem;
-        position: relative;
-        padding-bottom: 1rem;
-    }
-    .experience-section h2::after {
-        content: '';
-        display: block;
-        width: 80px;
-        height: 2px;
-        background-color: var(--secondary-color);
-        margin: 0.5rem auto 0;
-        border-radius: 1px;
-        opacity: 0.8;
-    }
-
-    .experience-card {
-        display: flex;
-        align-items: center;
-        gap: 4rem;
-        margin-bottom: 5rem;
-        background-color: var(--section-background); /* Dùng màu nền section mới */
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-    }
-
-    .experience-card:nth-child(even) {
-        flex-direction: row-reverse;
-    }
-
-    .experience-card-image {
-        flex: 1;
-        min-width: 40%;
-        height: 400px;
-        background-size: cover;
-        background-position: center;
-        transition: transform 0.5s ease;
-    }
-    .experience-card:hover .experience-card-image {
-        transform: scale(1.03);
-    }
-
-    .experience-card-content {
-        flex: 1;
-        padding: 3rem;
-        text-align: left;
-    }
-
-    .experience-card-content h3 {
-        font-size: 2.2rem;
-        color: var(--primary-color);
-        margin-bottom: 1rem;
-        font-weight: 600;
-    }
-
-    .experience-card-content p {
-        font-size: 1.1rem;
-        line-height: 1.8;
-        color: var(--text-main-color); /* Dùng màu chữ chính mới */
-        margin-bottom: 2.5rem;
-        text-align: justify;
-    }
-
-    .experience-card-content .button {
-        padding: 12px 30px;
-        font-size: 0.95rem;
-    }
-
-    /* Quotes Slider Section */
-    .quotes-slider-section {
-      padding: 6rem 0;
-      background-color: var(--section-background); /* Dùng màu nền section mới */
-      text-align: center;
-    }
-
-    .quotes-slider-section .container h2 {
-      margin-bottom: 2.5rem;
-      font-size: 3rem;
-      font-weight: 700;
-      color: var(--primary-color);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-family-serif);
-      position: relative;
-      padding-bottom: 1rem;
-    }
-    .quotes-slider-section .container h2::after {
-        content: '';
-        display: block;
-        width: 80px;
-        height: 2px;
-        background-color: var(--secondary-color);
-        margin: 0.5rem auto 0;
-        border-radius: 1px;
-        opacity: 0.8;
-    }
-
-    .quotes-slider-section .container h2 svg {
-      margin-right: 12px;
-      stroke-width: 2;
-      width: 28px;
-      height: 28px;
-    }
-
-    .quotes-slider-wrapper {
-      position: relative;
-      max-width: 800px;
-      margin: 0 auto;
-      overflow: hidden;
-      min-height: 240px;
-      background-color: var(--body-background); /* Dùng màu nền chính mới */
-      border-radius: 10px;
-      padding: 3rem;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-    }
-
-    .quote-item {
-      width: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
-      visibility: hidden;
-      transform: translateY(20px);
-      padding: 1rem 0;
-    }
-
-    .quote-item.active {
-      opacity: 1;
-      visibility: visible;
-      position: relative;
-      transform: translateY(0);
-    }
-
-    .quote-item blockquote {
-      border-left: 4px solid var(--secondary-color);
-      padding-left: 25px;
-      margin: 0 auto 1rem;
-      font-family: var(--font-family-serif);
-      font-style: italic;
-      color: var(--text-main-color); /* Dùng màu chữ chính mới */
-      font-size: 1.4rem;
-      line-height: 1.8;
-      max-width: 650px;
-      text-align: justify;
-    }
-    .quote-item blockquote p {
-        font-family: var(--font-family-serif);
-        font-style: italic;
-        margin-bottom: 0;
-        text-align: justify;
-    }
-    .quote-author {
-        font-size: 1rem;
-        color: var(--text-sub-color); /* Dùng màu chữ phụ mới */
-        margin-top: 0.5rem;
-        display: block;
-        text-align: right;
-        padding-right: 25px;
-    }
-
-
-    /* Call To Action Section */
-    .cta-section {
-        background-color: var(--primary-color);
-        padding: 6rem 1rem;
-        text-align: center;
-        color: var(--white);
-    }
-
-    .cta-section h2 {
-        font-size: 3.5rem;
-        margin-bottom: 1.5rem;
-        line-height: 1.2;
-    }
-
-    .cta-section p {
-        font-family: var(--font-family-serif);
-        font-size: 1.3rem;
-        max-width: 800px;
-        margin: 0 auto 3rem;
-        line-height: 1.7;
-        text-align: center;
-    }
-
-    .cta-section .button {
-        background-color: var(--body-background); /* Dùng màu nền chính mới */
-        border-color: var(--white);
-        color: var(--white);
-    }
-    .cta-section .button:hover {
-        background-color: #0f131b;
-        border-color: var(--secondary-color);
-    }
-
-
-    /* Footer */
-    footer {
-      background-color: #0F141C; /* Giữ màu footer này, nó đủ đậm và hòa hợp */
-      color: var(--text-sub-color); /* Dùng màu chữ phụ mới */
-      padding: 3.5rem 1rem;
-    }
-
-    .footer-container {
-        max-width: 1100px;
-        margin: 0 auto;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 2rem;
-    }
-
-    .footer-col {
-        flex: 1;
-        min-width: 250px;
-        text-align: left;
-    }
-
-    .footer-col h4 {
-        color: var(--white);
-        font-family: var(--font-family-sans-serif);
-        font-size: 1.1rem;
-        margin-bottom: 1rem;
-        font-weight: 600;
-    }
-
-    /* Footer Logo */
-    .footer-col .footer-logo {
-        margin-bottom: 1rem;
-    }
-    .footer-col .footer-logo img {
-        max-width: 100px;
-        height: auto;
-        opacity: 0.8;
-        transition: opacity 0.3s ease;
-    }
-    .footer-col .footer-logo img:hover {
-        opacity: 1;
-    }
-
-
-    .footer-col p, .footer-col a {
-        font-family: var(--font-family-sans-serif);
-        font-size: 0.9rem;
-        line-height: 1.6;
-        margin-bottom: 0.5rem;
-    }
-
-    .footer-col a {
-        color: var(--secondary-color);
-        text-decoration: none;
-        border-bottom: 1px dotted var(--secondary-color);
-        transition: color 0.3s ease, border-bottom-color 0.3s ease;
-    }
-    .footer-col a:hover {
-        color: var(--white);
-        border-bottom-color: var(--white);
-    }
-
-    .footer-social {
-      margin-top: 1.5rem;
-    }
-    .footer-col.social-col {
-        flex-grow: 0.5;
-        text-align: right;
-    }
-     .footer-col.social-col .footer-social {
-        justify-content: flex-end;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-    }
-
-    .footer-social .social-link {
-      color: var(--text-sub-color); /* Dùng màu chữ phụ mới */
-      font-size: 1.7rem;
-      margin: 0 0.8rem;
-      transition: color 0.3s ease, transform 0.3s ease;
-    }
-
-    .footer-social .social-link:hover {
-      color: var(--white);
-      transform: scale(1.1);
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 992px) {
-        .hero-content h1 { font-size: 3.8rem; }
-        .hero-content p { font-size: 1.3rem; }
-        .feature-section h2, .experience-section h2, .quotes-slider-section h2 { font-size: 2.8rem; }
-        .feature-item h3 { font-size: 1.6rem; }
-        .feature-item p { font-size: 0.95rem; }
-
-        .experience-card {
-            flex-direction: column;
-            gap: 2rem;
-            margin-bottom: 4rem;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoshi Store - Dụng cụ bếp chuẩn Nhật (Bản demo)</title>
+
+    <style>
+        /* Biến CSS để dễ quản lý màu sắc, font */
+        :root {
+            --primary-color: #e74c3c; /* Đỏ Hoshi Store */
+            --secondary-color: #f0e68c; /* Vàng nhạt */
+            --dark-text: #333;
+            --light-text: #fff;
+            --border-color: #eee;
+            --background-light: #f4f4f4;
+            --background-white: #fff;
         }
-        .experience-card:nth-child(even) {
-            flex-direction: column;
-        }
-        .experience-card-image {
-            width: 100%;
-            min-height: 300px;
-        }
-        .experience-card-content {
-            padding: 2.5rem;
-            text-align: center;
-        }
-        .experience-card-content h3 {
-            font-size: 1.8rem;
-        }
-        .experience-card-content p {
-            font-size: 1rem;
-        }
-        .quotes-slider-wrapper { min-height: 220px; }
-        .quote-item blockquote { font-size: 1.25rem; }
-        .cta-section h2 { font-size: 3rem; }
-        .cta-section p { font-size: 1.2rem; }
 
-        .footer-container {
-            flex-direction: column;
+        /* Reset CSS cơ bản */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--background-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block; /* Loại bỏ khoảng trống dưới ảnh */
+        }
+
+        /* Header */
+        header {
+            background-color: var(--background-white);
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            flex-wrap: wrap; /* Cho phép các mục xuống dòng trên màn hình nhỏ */
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
             align-items: center;
         }
-        .footer-col {
-            text-align: center;
-            margin-bottom: 1.5rem;
-            min-width: unset;
+
+        nav a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
-        .footer-col.social-col {
-            text-align: center;
+
+        nav a:hover {
+            color: var(--primary-color);
         }
-        .footer-col.social-col .footer-social {
+
+        /* Responsive Navbar */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .logo {
+                margin-bottom: 15px;
+            }
+            nav {
+                width: 100%;
+                justify-content: space-around; /* Căn đều các mục */
+            }
+            nav a {
+                margin: 0 10px 10px 10px; /* Khoảng cách giữa các mục trên mobile */
+            }
+        }
+
+
+        /* Hero Section (Banner chính) */
+        .hero {
+            background-color: var(--secondary-color);
+            text-align: center;
+            padding: 80px 20px;
+            color: var(--dark-text);
+            position: relative; /* Cho carousel */
+            overflow: hidden; /* Ẩn các ảnh ngoài khung nhìn */
+        }
+
+        .hero-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+            height: 400px; /* Chiều cao cố định cho banner */
+        }
+
+        .hero-slide {
+            min-width: 100%; /* Mỗi slide chiếm toàn bộ chiều rộng */
+            flex-shrink: 0; /* Ngăn co lại */
+            display: flex;
+            flex-direction: column;
             justify-content: center;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+            color: var(--light-text);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Tạo hiệu ứng chữ nổi */
         }
-    }
 
-    @media (max-width: 768px) {
-        .nav-links.desktop-nav-links { display: none; }
-        .hamburger { display: block; }
-        .nav-left { flex-grow: 1; }
-        .nav-logo { margin-right: auto; }
+        .hero-slide:nth-child(1) { background-image: url('https://via.placeholder.com/1200x400/FF5733/FFFFFF?text=HOSHI+STORE+-+Dao+Nhat'); }
+        .hero-slide:nth-child(2) { background-image: url('https://via.placeholder.com/1200x400/33FF57/FFFFFF?text=HOSHI+STORE+-+Chao+Cao+Cap'); }
+        .hero-slide:nth-child(3) { background-image: url('https://via.placeholder.com/1200x400/3357FF/FFFFFF?text=HOSHI+STORE+-+Dung+Cu+Bep'); }
 
-        .hero-section {
-            height: 80vh;
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            max-width: 800px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
         }
-        .hero-content h1 { font-size: 3.2rem; }
-        .hero-content p { font-size: 1.15rem; }
-        .button { padding: 12px 30px; font-size: 0.95rem; }
 
-        section { padding: 4rem 0; }
-        .feature-section h2, .experience-section h2, .quotes-slider-section h2 { font-size: 2.4rem; }
-        .feature-section > p { font-size: 1.05rem; margin-bottom: 3rem;}
-        .feature-item { padding: 2rem; }
-        .feature-item i { font-size: 2.2rem; }
-        .feature-item h3 { font-size: 1.4rem; }
-
-        .experience-card-image {
-            min-height: 250px;
+        .hero p {
+            font-size: 1.3em;
+            margin-bottom: 40px;
+            max-width: 700px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
         }
-        .experience-card-content {
-            padding: 2rem;
+
+        .button {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 14px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: inline-block; /* Để áp dụng padding */
+            font-weight: bold;
+            border: none; /* Cho nút */
+            cursor: pointer; /* Cho nút */
         }
-        .experience-card-content h3 { font-size: 1.8rem; }
-        .experience-card-content p { font-size: 1rem; margin-bottom: 2rem; }
 
-        .quotes-slider-wrapper { min-height: 200px; padding: 2.5rem; }
-        .quote-item blockquote { font-size: 1.15rem; padding-left: 20px; }
-        .quote-author { font-size: 0.9rem; padding-right: 20px;}
+        .button:hover {
+            background-color: #c0392b; /* Màu tối hơn khi hover */
+            transform: translateY(-2px); /* Hiệu ứng nhấc nhẹ */
+            text-decoration: none; /* Bỏ gạch chân khi hover */
+        }
 
-        .cta-section h2 { font-size: 2.5rem; }
-        .cta-section p { font-size: 1.1rem; margin-bottom: 2.5rem; }
-    }
+        /* Carousel Navigation Dots */
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+        }
 
-    @media (max-width: 480px) {
-      :root { --nav-height: 60px; }
-      .navbar { padding: 0 1rem; }
-      .nav-logo img { height: 40px; }
+        .dot {
+            width: 12px;
+            height: 12px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.3);
+        }
 
-      .hero-section { height: 70vh; }
-      .hero-content h1 { font-size: 2.5rem; letter-spacing: 0.03em; padding-bottom: 15px;}
-      .hero-content h1::after { width: 60px; margin-top: 15px;}
-      .hero-content p { font-size: 1rem; margin-bottom: 2.5rem; }
-      .button { padding: 10px 25px; font-size: 0.9rem; }
+        .dot.active {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
 
-      section { padding: 3rem 0; }
-      .feature-section h2, .experience-section h2, .quotes-slider-section h2 { font-size: 2rem; padding-bottom: 0.8rem;}
-      .feature-section h2::after, .experience-section h2::after, .quotes-slider-section h2::after { width: 50px; }
+        /* Container cho sản phẩm */
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+            gap: 30px;
+        }
 
-      .feature-section > p { font-size: 0.95rem; margin-bottom: 2.5rem;}
-      .feature-item { padding: 1.5rem; }
-      .feature-item h3 { font-size: 1.2rem; }
-      .feature-item i { font-size: 2rem; }
+        /* Product Card */
+        .product-card {
+            background-color: var(--background-white);
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding-bottom: 20px; /* Khoảng cách dưới cùng */
+        }
 
-      .experience-card-image { min-height: 200px; }
-      .experience-card-content { padding: 1.5rem; }
-      .experience-card-content h3 { font-size: 1.6rem; }
-      .experience-card-content p { font-size: 0.9rem; margin-bottom: 1.5rem;}
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
 
-      .quotes-slider-wrapper { min-height: 180px; padding: 2rem; }
-      .quote-item blockquote { font-size: 1.05rem; padding-left: 15px;}
-      .quote-author { font-size: 0.85rem; padding-right: 15px;}
+        .product-card img {
+            width: 100%;
+            height: 220px; /* Chiều cao cố định cho ảnh sản phẩm */
+            object-fit: cover; /* Đảm bảo ảnh đầy đủ khung */
+            border-bottom: 1px solid var(--border-color);
+        }
 
-      .cta-section h2 { font-size: 2rem; }
-      .cta-section p { font-size: 1rem; margin-bottom: 2rem;}
-    }
-  </style>
+        .product-card h3 {
+            margin: 20px 10px 10px;
+            font-size: 1.4em;
+            color: var(--dark-text);
+            min-height: 50px; /* Đảm bảo tiêu đề không bị xô lệch */
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* Giới hạn 2 dòng */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .product-card p.price {
+            font-size: 1.6em;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .product-card .button {
+            font-size: 0.95em;
+            padding: 10px 20px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #222;
+            color: var(--light-text);
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        .footer p {
+            margin-bottom: 15px;
+            font-size: 0.9em;
+        }
+
+        .footer div a {
+            color: var(--light-text);
+            margin: 0 15px;
+            font-size: 0.95em;
+            transition: color 0.3s ease;
+        }
+
+        .footer div a:hover {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* Responsive cho tiêu đề và nút trong hero */
+        @media (max-width: 600px) {
+            .hero {
+                padding: 50px 15px;
+                height: 350px; /* Giảm chiều cao trên mobile */
+            }
+            .hero-slides {
+                height: 350px;
+            }
+            .hero h1 {
+                font-size: 2.2em;
+            }
+            .hero p {
+                font-size: 1em;
+                margin-bottom: 25px;
+            }
+            .button {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+            .product-card h3 {
+                font-size: 1.2em;
+                min-height: 40px;
+            }
+            .product-card p.price {
+                font-size: 1.3em;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="mobile-menu-overlay"></div>
-  <div class="mobile-menu-wrapper">
-    <div class="mobile-menu">
-      <button class="close-btn" aria-label="Đóng menu"><i class="fas fa-times"></i></button>
 
-      <div class="mobile-menu-brand">
-          <a href="index.html" aria-label="Trang chủ BrHut">
-              <img src="https://brhut.wordpress.com/wp-content/uploads/2025/05/b612_20250511_234528_6708954434651733151299.jpg" alt="Logo BrHut">
-          </a>
-      </div>
+    <header>
+        <a href="#" class="logo">Hoshi Store</a>
+        <nav>
+            <a href="#">Trang chủ</a>
+            <a href="#">Sản phẩm</a>
+            <a href="#">Về chúng tôi</a>
+            <a href="#">Liên hệ</a>
+            </nav>
+    </header>
 
-      <ul class="nav-links">
-        <li><a href="index.html">Trang Chủ</a></li>
-        <li><a href="about.html">Về BrHut</a></li>
-        <li><a href="dothucong.html">Thủ Công</a></li>
-        <li><a href="vuonuomxanh.html">Vườn Ươm</a></li>
-        <li><a href="goikynang.html">Kỹ Năng</a></li>
-      </ul>
-
-      <div class="mobile-menu-social">
-          <a href="https://www.facebook.com/share/1BmdHDVenW/" class="social-link" target="_blank" aria-label="Facebook BrHut"><i class="fab fa-facebook"></i></a>
-          <a href="https://www.instagram.com/brhutcraft" class="social-link" target="_blank" aria-label="Instagram BrHut"><i class="fab fa-instagram"></i></a>
-          <a href="https://youtube.com/@brhut" class="social-link" target="_blank" aria-label="YouTube BrHut"><i class="fab fa-youtube"></i></a>
-          <a href="https://www.tiktok.com/@brhutcraft" class="social-link" target="_blank" aria-label="TikTok BrHut"><i class="fab fa-tiktok"></i></a>
-      </div>
-
-    </div>
-  </div>
-
-  <nav class="navbar">
-    <div class="nav-left">
-      <a href="index.html" class="nav-logo" aria-label="Trang chủ BrHut">
-        <img src="https://brhut.wordpress.com/wp-content/uploads/2025/05/b612_20250511_234528_6708954434651733151299.jpg" alt="Logo BrHut">
-      </a>
-      <ul class="nav-links desktop-nav-links" id="navLinks">
-        <li><a href="index.html">Trang Chủ</a></li>
-        <li><a href="about.html">Về BrHut</a></li>
-        <li><a href="dothucong.html">Thủ Công</a></li>
-        <li><a href="vuonuomxanh.html">Vườn Ươm</a></li>
-        <li><a href="goikynang.html">Kỹ Năng</a></li>
-      </ul>
-      <div class="hamburger" aria-label="Mở menu di động">
-          <i class="fas fa-bars"></i>
-      </div>
-    </div>
-    <div class="nav-right">
-      <a href="https://ko-fi.com/brhut" class="kofi-icon" target="_blank" aria-label="Ủng hộ BrHut trên Ko-fi">
-        <i class="fas fa-coffee"></i>
-      </a>
-    </div>
-  </nav>
-
-  <main>
-    <section class="hero-section" id="hero-section">
-        <div class="hero-content" data-aos="fade-up">
-            <h1>BrHut: Kiến Tạo Vẻ Đẹp Từ Sự Tinh Túy</h1>
-            <p>Khám phá thế giới BrHut – nơi chúng tôi chắt lọc tinh hoa từ thiên nhiên và đôi tay tài hoa, mang đến những sản phẩm thủ công độc đáo, đậm chất mộc mạc và bình yên.</p>
-            <a href="about.html" class="button">Khám Phá Câu Chuyện</a>
-        </div>
-    </section>
-
-    <section class="feature-section">
-        <div class="container">
-            <h2 data-aos="fade-up">Triết Lý Sáng Tạo Của BrHut</h2>
-            <p data-aos="fade-up" data-aos-delay="150">Tại BrHut, chúng tôi tin rằng vẻ đẹp thực sự nằm trong sự giản dị, và giá trị được tạo nên từ tâm huyết. Mỗi sản phẩm không chỉ là vật chất mà còn là câu chuyện, là hơi thở của thiên nhiên và dấu ấn của sự sáng tạo không ngừng.</p>
-            <div class="feature-grid">
-                <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
-                    <i class="fas fa-leaf"></i>
-                    <h3>Kết Nối Thiên Nhiên</h3>
-                    <p>Sử dụng vật liệu tự nhiên, thân thiện môi trường, đưa hơi thở của đất trời vào từng chi tiết. Chúng tôi trân trọng sự tinh khiết của nguyên liệu và quy trình chế tác thủ công, đảm bảo mỗi sản phẩm là một minh chứng cho sự hài hòa giữa con người và thiên nhiên.</p>
+    <main>
+        <section class="hero">
+            <div class="hero-slides" id="heroCarousel">
+                <div class="hero-slide">
+                    <h1>Khám phá Dụng cụ bếp chuẩn Nhật</h1>
+                    <p>Nâng tầm trải nghiệm ẩm thực của bạn với các sản phẩm cao cấp từ Hoshi Store.</p>
+                    <a href="#" class="button">Mua sắm ngay</a>
                 </div>
-                <div class="feature-item" data-aos="fade-up" data-aos-delay="450">
-                    <i class="fas fa-hand-sparkles"></i>
-                    <h3>Thủ Công Tinh Xảo</h3>
-                    <p>Mỗi sản phẩm là một tác phẩm nghệ thuật, được chế tác thủ công tỉ mỉ với đam mê và sự khéo léo. Từ những đường nét đầu tiên cho đến khi hoàn thiện, chúng tôi đặt trọn tâm hồn vào từng chi tiết, tạo nên vẻ đẹp độc đáo và vượt thời gian.</p>
+                <div class="hero-slide">
+                    <h1>Dao Nhật sắc bén, thủ công tinh xảo</h1>
+                    <p>Sự lựa chọn hoàn hảo cho mọi đầu bếp từ Chef Hoshi Phan.</p>
+                    <a href="#" class="button">Tìm hiểu thêm</a>
                 </div>
-                <div class="feature-item" data-aos="fade-up" data-aos-delay="600">
-                    <i class="fas fa-lightbulb"></i>
-                    <h3>Lối Sống Tối Giản</h3>
-                    <p>BrHut khuyến khích sự trân trọng những giá trị cốt lõi, tìm thấy bình yên trong sự đơn giản và tinh tế. Chúng tôi tin rằng cuộc sống đích thực không nằm ở sự phô trương, mà ở việc cảm nhận vẻ đẹp từ những điều chân thật và gần gũi nhất.</p>
+                <div class="hero-slide">
+                    <h1>Chảo chống dính bền bỉ & an toàn</h1>
+                    <p>Công nghệ Nhật Bản cho bữa ăn ngon và lành mạnh.</p>
+                    <a href="#" class="button">Xem bộ sưu tập</a>
                 </div>
             </div>
-        </div>
-    </section>
+            <div class="slider-dots" id="sliderDots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+            </div>
+        </section>
 
-    <section class="experience-section">
-        <div class="container">
-            <h2 data-aos="fade-up">Trải Nghiệm BrHut Đa Dạng</h2>
-
-            <div class="experience-card" data-aos="fade-up">
-                <div class="experience-card-image" style="background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_17453199661767419986561943264097.png');"></div>
-                <div class="experience-card-content">
-                    <h3>Nghệ Thuật Thủ Công Độc Đáo</h3>
-                    <p>Khám phá bộ sưu tập độc đáo của những vật phẩm được làm hoàn toàn bằng tay, từ gốm sứ mộc mạc, đồ gỗ tinh tế đến phụ kiện dệt thủ công. Mỗi món đồ là sự kết hợp giữa kỹ thuật truyền thống và cảm hứng hiện đại, mang đến vẻ đẹp riêng biệt và tinh hoa của sự sáng tạo cho không gian sống của bạn.</p>
-                    <a href="dothucong.html" class="button">Xem Thêm</a>
-                </div>
+        <section class="container">
+            <div class="product-card">
+                <img src="https://via.placeholder.com/400x220/8A2BE2/FFFFFF?text=Dao+Santoku" alt="Dao Santoku Nhật">
+                <h3>Dao Santoku Nhật Chef Hoshi Signature</h3>
+                <p class="price">1.250.000 VNĐ</p>
+                <button class="button add-to-cart-btn" data-product-id="P001">Thêm vào giỏ</button>
             </div>
 
-            <div class="experience-card" data-aos="fade-up">
-                <div class="experience-card-image" style="background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_1745331932592854088223531181729.png');"></div>
-                <div class="experience-card-content">
-                    <h3>Không Gian Xanh & Vườn Ươm</h3>
-                    <p>Đưa thiên nhiên vào ngôi nhà bạn với các giải pháp xanh từ BrHut. Khám khám phá các loại cây cảnh độc đáo, chậu cây thủ công, và các vật dụng cần thiết để tạo nên một không gian xanh tươi mát, bình yên và gần gũi với thiên nhiên. Chúng tôi cung cấp những gợi ý để bạn có thể tự tay kiến tạo ốc đảo xanh của riêng mình.</p>
-                    <a href="vuonuomxanh.html" class="button">Tìm Hiểu Ngay</a>
-                </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/400x220/FFD700/000000?text=Chao+Chong+Dinh" alt="Chảo Chống Dính Đá Hoa Cương">
+                <h3>Chảo Chống Dính Vân Đá Cao Cấp 28cm</h3>
+                <p class="price">890.000 VNĐ</p>
+                <button class="button add-to-cart-btn" data-product-id="P002">Thêm vào giỏ</button>
             </div>
 
-            <div class="experience-card" data-aos="fade-up">
-                <div class="experience-card-image" style="background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_17458175842903752646802185968006.png');"></div>
-                <div class="experience-card-content">
-                    <h3>Học Hỏi & Chia Sẻ Kỹ Năng</h3>
-                    <p>BrHut không chỉ là nơi mua sắm, mà còn là cộng đồng của những người đam mê sáng tạo. Tham gia các khóa học, workshop và cùng chia sẻ kinh nghiệm về thủ công, làm vườn, và nhiều kỹ năng thú vị khác để phát triển bản thân và kết nối những tâm hồn đồng điệu. Hãy để BrHut là nơi bạn tìm thấy nguồn cảm hứng bất tận.</p>
-                    <a href="goikynang.html" class="button">Tham Gia Cộng Đồng</a>
-                </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/400x220/20B2AA/FFFFFF?text=Thot+Go+Oc+Cho" alt="Thớt Gỗ Óc Chó">
+                <h3>Thớt Gỗ Óc Chó Tự Nhiên Kháng Khuẩn</h3>
+                <p class="price">550.000 VNĐ</p>
+                <button class="button add-to-cart-btn" data-product-id="P003">Thêm vào giỏ</button>
             </div>
-        </div>
-    </section>
 
-    <section class="quotes-slider-section" data-aos="fade-up">
-        <div class="container">
-            <h2>
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                </svg>
-                Lời Thì Thầm Từ Tâm Hồn
-            </h2>
-            <div class="quotes-slider-wrapper">
-                <article class="quote-item active">
-                    <blockquote>
-                        <p>"Đơn giản không phải là từ bỏ nhiều thứ, mà là tìm thấy giá trị đích thực trong những khoảnh khắc bình dị và chân thực nhất."</p>
-                    </blockquote>
-                    <span class="quote-author">– BrHut</span>
-                </article>
-                <article class="quote-item">
-                     <blockquote>
-                        <p>"Mỗi sản phẩm thủ công là một câu chuyện, đong đầy tâm huyết và sự khéo léo – vẻ đẹp độc đáo không thể sao chép."</p>
-                    </blockquote>
-                    <span class="quote-author">– BrHut</span>
-                </article>
-                <article class="quote-item">
-                     <blockquote>
-                        <p>"Giá trị đích thực của sáng tạo không nằm ở thành phẩm, mà ở hành trình nỗ lực, tâm huyết và tinh thần bạn gửi gắm vào từng chi tiết."</p>
-                    </blockquote>
-                    <span class="quote-author">– BrHut</span>
-                </article>
-                <article class="quote-item">
-                     <blockquote>
-                        <p>"Giữa bộn bề cuộc sống, hãy tìm về bình yên trong nhịp điệu sáng tạo, nơi tâm trí và đôi tay hòa quyện thành một."</p>
-                    </blockquote>
-                    <span class="quote-author">– BrHut</span>
-                </article>
-                 <article class="quote-item">
-                     <blockquote>
-                        <p>"Lắng nghe tiếng cây cỏ, cảm nhận hơi thở của đất – đó là cách ta kết nối lại với nguồn cội và tìm thấy sự thanh bình nội tâm."</p>
-                    </blockquote>
-                    <span class="quote-author">– BrHut</span>
-                </article>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/400x220/DAA520/FFFFFF?text=Gia+Vi+Nhat" alt="Set Gia Vị Nhật Bản">
+                <h3>Set Gia Vị Nhật Bản Hoshi Pantry</h3>
+                <p class="price">320.000 VNĐ</p>
+                <button class="button add-to-cart-btn" data-product-id="P004">Thêm vào giỏ</button>
             </div>
+
+            <div class="product-card">
+                <img src="https://via.placeholder.com/400x220/FFA07A/000000?text=Noi+Inox" alt="Nồi Inox Cao Cấp">
+                <h3>Nồi Inox 3 Đáy Đa Năng 20cm</h3>
+                <p class="price">750.000 VNĐ</p>
+                <button class="button add-to-cart-btn" data-product-id="P005">Thêm vào giỏ</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://via.placeholder.com/400x220/4682B4/FFFFFF?text=Keo+Bep" alt="Kéo Bếp Đa Năng">
+                <h3>Kéo Bếp Nhật Đa Năng Thép Không Gỉ</h3>
+                <p class="price">280.000 VNĐ</p>
+                <button class="button add-to-cart-btn" data-product-id="P006">Thêm vào giỏ</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Hoshi Store. All rights reserved.</p>
+        <div>
+            <a href="#">Chính sách bảo mật</a> |
+            <a href="#">Điều khoản sử dụng</a> |
+            <a href="#">FAQs</a>
         </div>
-    </section>
+    </footer>
 
-    <section class="cta-section" data-aos="fade-up">
-        <div class="container">
-            <h2>Sẵn Sàng Khám Phá Thế Giới BrHut?</h2>
-            <p>Tham gia cùng chúng tôi để bắt đầu hành trình sáng tạo, kết nối với thiên nhiên và tìm thấy những giá trị đích thực trong từng sản phẩm thủ công tinh tế.</p>
-            <a href="contact.html" class="button">Liên Hệ Ngay</a>
-        </div>
-    </section>
+    <script>
+        // JavaScript cho Carousel (thanh trượt ảnh) ở Hero Section
+        const heroCarousel = document.getElementById('heroCarousel');
+        const slides = document.querySelectorAll('.hero-slide');
+        const dotsContainer = document.getElementById('sliderDots');
+        const dots = document.querySelectorAll('.dot');
+        let currentSlide = 0;
+        let slideInterval; // Biến để lưu trữ interval tự động trượt
 
-  </main>
+        // Hàm hiển thị slide
+        function showSlide(index) {
+            if (index >= slides.length) {
+                currentSlide = 0;
+            } else if (index < 0) {
+                currentSlide = slides.length - 1;
+            } else {
+                currentSlide = index;
+            }
 
-  <footer data-aos="fade-in">
-    
-        
-        <br>
-      </div>
-      <div class="footer-col">
-      <br>
-        <a href="mailto:BrHutCraft@gmail.com">BrHutCraft@gmail.com</a></p>
-      
-      </div>
-      <div class="footer-col social-col">
-        
-        <div class="footer-social">
-          <a href="https://www.facebook.com/share/1BmdHDVenW/" class="social-link" target="_blank" aria-label="Facebook BrHut"><i class="fab fa-facebook"></i></a>
-          <a href="https://www.instagram.com/brhutcraft" class="social-link" target="_blank" aria-label="Instagram BrHut"><i class="fab fa-instagram"></i></a>
-          <a href="https://youtube.com/@brhut" class="social-link" target="_blank" aria-label="YouTube BrHut"><i class="fab fa-youtube"></i></a>
-          <a href="https://www.tiktok.com/@brhutcraft" class="social-link" target="_blank" aria-label="TikTok BrHut"><i class="fab fa-tiktok"></i></a>
-        </div>
-      </div>
-    </div>
-    <br> 
-    <p>© 2018 BrHut.com</p>
-  </footer>
+            // Di chuyển các slide
+            heroCarousel.style.transform = `translateX(-${currentSlide * 100}%)`;
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      AOS.init({
-        duration: 800,
-        once: true,
-        offset: 50,
-      });
+            // Cập nhật trạng thái của các chấm (dots)
+            dots.forEach((dot, i) => {
+                dot.classList.remove('active');
+                if (i === currentSlide) {
+                    dot.classList.add('active');
+                }
+            });
+        }
 
-      const hamburger = document.querySelector('.hamburger');
-      const mobileMenuWrapper = document.querySelector('.mobile-menu-wrapper');
-      const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
-      const closeBtn = document.querySelector('.mobile-menu .close-btn');
-      // Lấy tất cả các liên kết trong menu di động (bao gồm cả social links nếu muốn đóng menu khi click vào chúng)
-      const mobileNavLinks = document.querySelectorAll('.mobile-menu .nav-links a, .mobile-menu-social .social-link');
+        // Tự động chuyển slide
+        function startAutoSlide() {
+            slideInterval = setInterval(() => {
+                showSlide(currentSlide + 1);
+            }, 5000); // Chuyển slide mỗi 5 giây
+        }
 
-      function openMobileMenu() {
-        mobileMenuWrapper.classList.add('active');
-        mobileMenuOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Ngăn cuộn trang chính khi menu mở
-      }
+        // Dừng tự động chuyển slide khi người dùng tương tác
+        function stopAutoSlide() {
+            clearInterval(slideInterval);
+        }
 
-      function closeMobileMenu() {
-        mobileMenuWrapper.classList.remove('active');
-        mobileMenuOverlay.classList.remove('active');
-        document.body.style.overflow = ''; // Cho phép cuộn lại trang chính
-      }
-
-      if (hamburger) {
-        hamburger.addEventListener('click', openMobileMenu);
-      }
-      if (closeBtn) {
-        closeBtn.addEventListener('click', closeMobileMenu);
-      }
-      if (mobileMenuOverlay) {
-        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
-      }
-      mobileNavLinks.forEach(link => {
-        link.addEventListener('click', closeMobileMenu);
-      });
-
-      // Script cho Quotes Slider
-      const quoteItems = document.querySelectorAll('.quote-item');
-      let currentQuoteIndex = 0;
-      const quoteIntervalTime = 7000;
-
-      function showQuote(index) {
-        quoteItems.forEach((item, i) => {
-          item.classList.remove('active');
-          if (i === index) {
-            item.classList.add('active');
-          }
+        // Xử lý sự kiện khi click vào các chấm
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                stopAutoSlide(); // Dừng tự động khi người dùng click
+                const slideIndex = parseInt(dot.dataset.slide);
+                showSlide(slideIndex);
+                startAutoSlide(); // Khởi động lại sau khi người dùng click
+            });
         });
-      }
 
-      function nextQuote() {
-        currentQuoteIndex = (currentQuoteIndex + 1) % quoteItems.length;
-        showQuote(currentQuoteIndex);
-      }
+        // Khởi tạo carousel và bắt đầu tự động trượt
+        showSlide(0); // Hiển thị slide đầu tiên khi tải trang
+        startAutoSlide();
 
-      if (quoteItems.length > 0) {
-        showQuote(currentQuoteIndex);
-        setInterval(nextQuote, quoteIntervalTime);
-      }
+        // JavaScript cho nút "Thêm vào giỏ hàng"
+        const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
 
-      // Script cho Navbar scroll effect
-      const navbar = document.querySelector('.navbar');
-      if (navbar) {
-        window.addEventListener('scroll', () => {
-          let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-          if (scrollTop > 50) {
-            navbar.style.backgroundColor = 'rgba(28, 36, 42, 0.95)'; /* Điều chỉnh theo màu nền mới */
-            navbar.style.boxShadow = '0 3px 10px rgba(0,0,0,0.4)';
-          } else {
-            navbar.style.backgroundColor = 'rgba(28, 36, 42, 0.98)'; /* Điều chỉnh theo màu nền mới */
-            navbar.style.boxShadow = '0 2px 8px rgba(0,0,0,0.3)';
-          }
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const productId = button.dataset.productId;
+                alert(`Đã thêm sản phẩm có ID: ${productId} vào giỏ hàng của bạn! (Đây là chức năng demo)`);
+                // Trong thực tế, bạn sẽ gửi yêu cầu này đến server để xử lý giỏ hàng
+            });
         });
-      }
-    });
-  </script>
+
+    </script>
 </body>
 </html>
